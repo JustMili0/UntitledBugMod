@@ -11,16 +11,17 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 
 public class TabRegistry {
-    public static final ResourceKey<CreativeModeTab> BUGS_TAB = ResourceKey.create(
-        Registries.CREATIVE_MODE_TAB, BugMod.asResource("bugs_tab"));
+    public static final ResourceKey<CreativeModeTab> CREATIVE_TAB = ResourceKey.create(
+        Registries.CREATIVE_MODE_TAB, BugMod.asResource("creative_tab"));
 
     public static void init() {
         Registry.register(
-            BuiltInRegistries.CREATIVE_MODE_TAB, BUGS_TAB,
+            BuiltInRegistries.CREATIVE_MODE_TAB, CREATIVE_TAB,
             CreativeModeTab.builder(CreativeModeTab.Row.BOTTOM, 0)
-                .title(Component.translatable(BUGS_TAB.identifier().toLanguageKey("item_group")))
+                .title(Component.translatable(CREATIVE_TAB.identifier().toLanguageKey("item_group")))
                 .icon(() -> new ItemStack(ItemRegistry.SILK)) // TODO: Change later to moth spawn egg
                 .displayItems((params, output) -> {
+                    output.accept(ItemRegistry.COPPER_SHEARS);
                     for (Block block : BlockRegistry.getBlocks()) {
                         output.accept(block);
                     }

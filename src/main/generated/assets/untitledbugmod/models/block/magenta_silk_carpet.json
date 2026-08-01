@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "untitledbugmod:block/magenta_silk"
+  }
+}

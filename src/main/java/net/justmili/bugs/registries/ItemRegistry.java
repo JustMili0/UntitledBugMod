@@ -2,11 +2,13 @@ package net.justmili.bugs.registries;
 
 import net.justmili.bugs.BugMod;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.level.block.Block;
 
 import java.util.function.Function;
@@ -15,13 +17,19 @@ public class ItemRegistry {
     public static void init() {}
 
     public static final Item
-        SILK, WHITE_SILK, LIGHT_GRAY_SILK, GRAY_SILK, BLACK_SILK,
+        COPPER_SHEARS, SILK, WHITE_SILK, LIGHT_GRAY_SILK, GRAY_SILK, BLACK_SILK,
         BROWN_SILK, RED_SILK, ORANGE_SILK, YELLOW_SILK,
         LIME_SILK, GREEN_SILK, CYAN_SILK, LIGHT_BLUE_SILK, BLUE_SILK,
-        PURPLE_SILK, MAGENTA_SILK, PINK_SILK;
+        PURPLE_SILK, MAGENTA_SILK, PINK_SILK,
+        WHITE_SILK_CARPET, LIGHT_GRAY_SILK_CARPET, GRAY_SILK_CARPET, BLACK_SILK_CARPET,
+        BROWN_SILK_CARPET, RED_SILK_CARPET, ORANGE_SILK_CARPET, YELLOW_SILK_CARPET,
+        LIME_SILK_CARPET, GREEN_SILK_CARPET, CYAN_SILK_CARPET, LIGHT_BLUE_SILK_CARPET, BLUE_SILK_CARPET,
+        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET;
 
     static {
+        COPPER_SHEARS = registerItem("copper_shears", p -> new ShearsItem(p.durability(125).component(DataComponents.TOOL, ShearsItem.createToolProperties())));
         SILK = registerBlockItemWithCustomItemName("silk", BlockRegistry.SILK_TRIPWIRE);
+
         WHITE_SILK = registerBlockItem("white_silk", BlockRegistry.WHITE_SILK);
         LIGHT_GRAY_SILK = registerBlockItem("light_gray_silk", BlockRegistry.LIGHT_GRAY_SILK);
         GRAY_SILK = registerBlockItem("gray_silk", BlockRegistry.GRAY_SILK);
@@ -38,6 +46,23 @@ public class ItemRegistry {
         PURPLE_SILK = registerBlockItem("purple_silk", BlockRegistry.PURPLE_SILK);
         MAGENTA_SILK = registerBlockItem("magenta_silk", BlockRegistry.MAGENTA_SILK);
         PINK_SILK = registerBlockItem("pink_silk", BlockRegistry.PINK_SILK);
+
+        WHITE_SILK_CARPET = registerBlockItem("white_silk_carpet", BlockRegistry.WHITE_SILK_CARPET);
+        LIGHT_GRAY_SILK_CARPET = registerBlockItem("light_gray_silk_carpet", BlockRegistry.LIGHT_GRAY_SILK_CARPET);
+        GRAY_SILK_CARPET = registerBlockItem("gray_silk_carpet", BlockRegistry.GRAY_SILK_CARPET);
+        BLACK_SILK_CARPET = registerBlockItem("black_silk_carpet", BlockRegistry.BLACK_SILK_CARPET);
+        BROWN_SILK_CARPET = registerBlockItem("brown_silk_carpet", BlockRegistry.BROWN_SILK_CARPET);
+        RED_SILK_CARPET = registerBlockItem("red_silk_carpet", BlockRegistry.RED_SILK_CARPET);
+        ORANGE_SILK_CARPET = registerBlockItem("orange_silk_carpet", BlockRegistry.ORANGE_SILK_CARPET);
+        YELLOW_SILK_CARPET = registerBlockItem("yellow_silk_carpet", BlockRegistry.YELLOW_SILK_CARPET);
+        LIME_SILK_CARPET = registerBlockItem("lime_silk_carpet", BlockRegistry.LIME_SILK_CARPET);
+        GREEN_SILK_CARPET = registerBlockItem("green_silk_carpet", BlockRegistry.GREEN_SILK_CARPET);
+        CYAN_SILK_CARPET = registerBlockItem("cyan_silk_carpet", BlockRegistry.CYAN_SILK_CARPET);
+        LIGHT_BLUE_SILK_CARPET = registerBlockItem("light_blue_silk_carpet", BlockRegistry.LIGHT_BLUE_SILK_CARPET);
+        BLUE_SILK_CARPET = registerBlockItem("blue_silk_carpet", BlockRegistry.BLUE_SILK_CARPET);
+        PURPLE_SILK_CARPET = registerBlockItem("purple_silk_carpet", BlockRegistry.PURPLE_SILK_CARPET);
+        MAGENTA_SILK_CARPET = registerBlockItem("magenta_silk_carpet", BlockRegistry.MAGENTA_SILK_CARPET);
+        PINK_SILK_CARPET = registerBlockItem("pink_silk_carpet", BlockRegistry.PINK_SILK_CARPET);
     }
 
     private static Item registerBlockItem(String name, Block block) {

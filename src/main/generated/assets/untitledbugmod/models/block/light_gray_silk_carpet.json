@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "untitledbugmod:block/light_gray_silk"
+  }
+}

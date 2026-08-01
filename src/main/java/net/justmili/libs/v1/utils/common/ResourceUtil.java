@@ -15,6 +15,9 @@ public class ResourceUtil {
     public static Identifier asMinecraft(String path) {
         return parse("minecraft", path);
     }
+    public static Identifier asCommon(String path) {
+        return parse("c", path);
+    }
     public static Identifier asFabric(String path) {
         return parse("fabric", path);
     }

@@ -1,15 +1,12 @@
-- Fix datagen
-  - Something's wrong with silk tripwire- 
-- Add in block and item textures from Pollo
-- Add silk carpets
+- Fix block shape updates for silk tripwire
+- Get all missing textures from Pollo
 - Add bug net
 - Finish datagen
   - Add missing stuff for silk carpets and model for bug net
   - Add recipes for dying all the silk blocks
   - Add block loot for all the blocks (refer to google doc for drops of some blocks)
-  - Add silk (item) to `c:string`
+  - Add silk blocks etc to correct tool tags for preferred tools
 
-- [OWN ADDITION] Add copper shears 
 - Redo code of silk tripwire so it can actually be used as tripwire
   - Single silk is stronger than shears, make silk tripwire be able to be disarmed with copper shears
 
