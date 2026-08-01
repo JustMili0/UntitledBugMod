@@ -8,9 +8,11 @@
   - Add recipes for dying all the silk blocks
   - Add block loot for all the blocks (refer to google doc for drops of some blocks)
   - Add silk (item) to `c:string`
+
 - [OWN ADDITION] Add copper shears 
 - Redo code of silk tripwire so it can actually be used as tripwire
   - Single silk is stronger than shears, make silk tripwire be able to be disarmed with copper shears
+
 - Start working on entities
   - Make entities
   - Add moth cocoon block (whole and open)
@@ -18,3 +20,4 @@
   - Add snail slime (decaying block, item (Snail Slimeball), bottled item, block of it)
     - Add recipe for brewing slowness with snail slimeballs
   - Add anthill block
+- Don't forget to do datagen for all the blocks related to the entities
