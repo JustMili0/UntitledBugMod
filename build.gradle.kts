@@ -10,6 +10,12 @@ loom {
     accessWidenerPath = file("src/main/resources/${rootProject.property("mod_id")}.accesswidener")
 }
 
+fabricApi {
+    configureDataGeneration {
+        client = true
+    }
+}
+
 repositories {
     maven("https://maven.terraformersmc.com/") // Mod Menu
     maven("https://maven.bawnorton.com/releases") // MixinSquared extension for MixinExtras

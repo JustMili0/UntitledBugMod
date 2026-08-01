@@ -1,10 +1,23 @@
 package net.justmili.bugs;
 
 import net.fabricmc.api.ModInitializer;
+import net.justmili.bugs.registries.BlockRegistry;
+import net.justmili.bugs.registries.ItemRegistry;
+import net.justmili.bugs.registries.TabRegistry;
+import net.justmili.libs.v1.utils.common.ResourceUtil;
+import net.minecraft.resources.Identifier;
 
 public class BugMod implements ModInitializer {
+    public static final String MODID = "untitledbugmod";
+
     @Override
     public void onInitialize() {
+        BlockRegistry.init();
+        ItemRegistry.init();
+        TabRegistry.init();
+    }
 
+    public static Identifier asResource(String path) {
+        return ResourceUtil.parse(MODID, path);
     }
 }

@@ -21,6 +21,9 @@
     ],
     "client": [
       "net.justmili.bugs.client.FabricClient"
+    ],
+    "fabric-datagen": [
+      "net.justmili.bugs.datagen.DataGenerator"
     ]
   },
   "mixins": [
