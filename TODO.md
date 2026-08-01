@@ -12,7 +12,7 @@
 
 - Add bug net
 - Add Bugopedia
-- 
+
 - Add advancements
 
 Note: Don't forget to add it all to datagen (tags, recipes, models, loot)<br>
