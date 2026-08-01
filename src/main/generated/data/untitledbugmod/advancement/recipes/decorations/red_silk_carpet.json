@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_silk": {
+      "conditions": {
+        "items": [
+          {
+            "items": "untitledbugmod:red_silk"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "untitledbugmod:red_silk_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_red_silk"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "untitledbugmod:red_silk_carpet"
+    ]
+  }
+}

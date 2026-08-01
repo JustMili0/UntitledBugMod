@@ -1,20 +1,18 @@
 - Fix block shape updates for silk tripwire
-- Get all missing textures from Pollo
-- Add bug net
-- Finish datagen
-  - Add missing stuff for silk carpets and model for bug net
-  - Add recipes for dying all the silk blocks
-  - Add block loot for all the blocks (refer to google doc for drops of some blocks)
-  - Add silk blocks etc to correct tool tags for preferred tools
 
-- Redo code of silk tripwire so it can actually be used as tripwire
-  - Single silk is stronger than shears, make silk tripwire be able to be disarmed with copper shears
+- Add all textures from Pollo
+- Add bug net
+
+- Add snail slime
+  - Snail Slime Trail (decays)
+  - Snail slimeball (Gotten from breaking slime trails)
+  - Bottled Snail Slime (Gotten from RCing slime trails)
+  - Snail Slime Block (Made of 4 bottles of snail slime or 4 snail slimeballs)
 
 - Start working on entities
   - Make entities
   - Add moth cocoon block (whole and open)
-  - Add butterfly chrysalis block 
-  - Add snail slime (decaying block, item (Snail Slimeball), bottled item, block of it)
-    - Add recipe for brewing slowness with snail slimeballs
+  - Add butterfly chrysalis block
   - Add anthill block
-- Don't forget to do datagen for all the blocks related to the entities
+
+Note: Don't forget to add it all to datagen (tags, recipes, models, loot)

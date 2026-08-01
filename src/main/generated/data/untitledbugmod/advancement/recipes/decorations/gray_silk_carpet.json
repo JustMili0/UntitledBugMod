@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gray_silk": {
+      "conditions": {
+        "items": [
+          {
+            "items": "untitledbugmod:gray_silk"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "untitledbugmod:gray_silk_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gray_silk"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "untitledbugmod:gray_silk_carpet"
+    ]
+  }
+}

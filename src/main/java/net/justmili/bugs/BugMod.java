@@ -17,7 +17,7 @@ public class BugMod implements ModInitializer {
         TabRegistry.init();
     }
 
-    public static Identifier asResource(String path) {
+    public static Identifier asId(String path) {
         return ResourceUtil.parse(MODID, path);
     }
 }

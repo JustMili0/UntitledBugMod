@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#untitledbugmod:silk",
+    "minecraft:pink_dye"
+  ],
+  "result": {
+    "id": "untitledbugmod:pink_silk"
+  }
+}

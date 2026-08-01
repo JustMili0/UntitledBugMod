@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.justmili.bugs.BugMod;
 import net.justmili.bugs.registries.BlockRegistry;
 import net.justmili.bugs.registries.ItemRegistry;
-import net.justmili.libs.v1.utils.common.DatagenAssetUtil;
+import net.justmili.libs.v1.utils.common.datagen.DatagenAssetUtil;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 

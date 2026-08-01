@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#untitledbugmod:silk_carpets",
+    "minecraft:light_gray_dye"
+  ],
+  "result": {
+    "id": "untitledbugmod:light_gray_silk_carpet"
+  }
+}

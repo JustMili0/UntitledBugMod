@@ -1,4 +1,4 @@
-package net.justmili.libs.v1.utils.common;
+package net.justmili.libs.v1.utils.common.datagen;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;

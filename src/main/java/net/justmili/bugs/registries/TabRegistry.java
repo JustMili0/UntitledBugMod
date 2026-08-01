@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Block;
 
 public class TabRegistry {
     public static final ResourceKey<CreativeModeTab> CREATIVE_TAB = ResourceKey.create(
-        Registries.CREATIVE_MODE_TAB, BugMod.asResource("creative_tab"));
+        Registries.CREATIVE_MODE_TAB, BugMod.asId("creative_tab"));
 
     public static void init() {
         Registry.register(

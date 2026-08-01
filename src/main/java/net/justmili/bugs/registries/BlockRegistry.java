@@ -71,12 +71,12 @@ public class BlockRegistry {
         return copyAndRegister(name, blockToCopy, CarpetBlock::new);
     }
     private static Block copyAndRegister(String name, Block blockToCopy, Function<BlockBehaviour.Properties, Block> block) {
-        var id = BugMod.asResource(name);
+        var id = BugMod.asId(name);
         var properties = BlockBehaviour.Properties.ofFullCopy(blockToCopy).setId(ResourceKey.create(Registries.BLOCK, id));
         return Registry.register(BuiltInRegistries.BLOCK, id, block.apply(properties));
     }
     private static Block register(String name, Function<BlockBehaviour.Properties, Block> block) {
-        var id = BugMod.asResource(name);
+        var id = BugMod.asId(name);
         return Registry.register(BuiltInRegistries.BLOCK, id,
             block.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, id))));
     }

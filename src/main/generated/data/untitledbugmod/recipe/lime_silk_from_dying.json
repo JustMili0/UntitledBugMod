@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "#untitledbugmod:silk",
+    "minecraft:lime_dye"
+  ],
+  "result": {
+    "id": "untitledbugmod:lime_silk"
+  }
+}

@@ -27,7 +27,7 @@ public class ItemRegistry {
         PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET;
 
     static {
-        COPPER_SHEARS = registerItem("copper_shears", p -> new ShearsItem(p.durability(125).component(DataComponents.TOOL, ShearsItem.createToolProperties())));
+        COPPER_SHEARS = registerItem("copper_shears", p -> new ShearsItem(p.durability(126).component(DataComponents.TOOL, ShearsItem.createToolProperties())));
         SILK = registerBlockItemWithCustomItemName("silk", BlockRegistry.SILK_TRIPWIRE);
 
         WHITE_SILK = registerBlockItem("white_silk", BlockRegistry.WHITE_SILK);
@@ -66,17 +66,17 @@ public class ItemRegistry {
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        var id = BugMod.asResource(name);
+        var id = BugMod.asId(name);
         return Registry.register(BuiltInRegistries.ITEM, id, new BlockItem(block,
             new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id))));
     }
     private static Item registerBlockItemWithCustomItemName(String name, Block block) {
-        var id = BugMod.asResource(name);
+        var id = BugMod.asId(name);
         return Registry.register(BuiltInRegistries.ITEM, id, new BlockItem(block,
             new Item.Properties().useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id))));
     }
     private static Item registerItem(String name, Function<Item.Properties, Item> item) {
-        var id = BugMod.asResource(name);
+        var id = BugMod.asId(name);
         return Registry.register(BuiltInRegistries.ITEM, id,
             item.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
     }
