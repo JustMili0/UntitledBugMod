@@ -1,6 +1,6 @@
 - Fix block shape updates for silk tripwire
 
-- Add all textures from Pollo
+- Add all textures from Pollo (awaiting)
 
 - Add snail slime
   - Snail Slime Trail (decays)
