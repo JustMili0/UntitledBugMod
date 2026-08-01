@@ -13,5 +13,5 @@
 - Add bug net
 - Add Bugopedia
 
-Note: Don't forget to add it all to datagen (tags, recipes, models, loot)
+Note: Don't forget to add it all to datagen (tags, recipes, models, loot)<br>
 Note: We are not adding the healing silk bed, that's too OP
