@@ -14,7 +14,7 @@ public class BugsBlockLootProvider extends FabricBlockLootSubProvider {
 
     @Override
     public void generate() {
-        for (var block : BlockRegistry.getBlocks()) {
+        for (var block : BlockRegistry.getSilkBlocks()) {
             // TODO: Make exceptions for entity-related blocks when added
             dropSelf(block);
         }

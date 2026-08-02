@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Block;
 
 public class TabRegistry {
     public static final ResourceKey<CreativeModeTab> CREATIVE_TAB = ResourceKey.create(
-        Registries.CREATIVE_MODE_TAB, BugMod.asId("creative_tab"));
+        Registries.CREATIVE_MODE_TAB, BugMod.asId("content"));
 
     public static void init() {
         Registry.register(
@@ -22,9 +22,13 @@ public class TabRegistry {
                 .icon(() -> new ItemStack(ItemRegistry.SILK)) // TODO: Change later to moth spawn egg
                 .displayItems((params, output) -> {
                     output.accept(ItemRegistry.COPPER_SHEARS);
-                    for (Block block : BlockRegistry.getBlocks()) {
+                    output.accept(ItemRegistry.BUG_NET);
+                    for (Block block : BlockRegistry.getSilkBlocks()) {
                         output.accept(block);
                     }
+                    output.accept(ItemRegistry.SNAIL_SLIME);
+                    output.accept(ItemRegistry.SNAIL_SLIME_BOTTLE);
+                    output.accept(ItemRegistry.SNAIL_SLIME_BLOCK);
                 })
                 .build()
         );

@@ -25,7 +25,7 @@ public class ItemRegistry {
         WHITE_SILK_CARPET, LIGHT_GRAY_SILK_CARPET, GRAY_SILK_CARPET, BLACK_SILK_CARPET,
         BROWN_SILK_CARPET, RED_SILK_CARPET, ORANGE_SILK_CARPET, YELLOW_SILK_CARPET,
         LIME_SILK_CARPET, GREEN_SILK_CARPET, CYAN_SILK_CARPET, LIGHT_BLUE_SILK_CARPET, BLUE_SILK_CARPET,
-        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET;
+        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET, SNAIL_SLIME, SNAIL_SLIME_BOTTLE, SNAIL_SLIME_BLOCK;
 
     static {
         COPPER_SHEARS = registerItem("copper_shears", p -> new ShearsItem(p.durability(126).component(DataComponents.TOOL, ShearsItem.createToolProperties())));
@@ -65,6 +65,10 @@ public class ItemRegistry {
         PURPLE_SILK_CARPET = registerBlockItem("purple_silk_carpet", BlockRegistry.PURPLE_SILK_CARPET);
         MAGENTA_SILK_CARPET = registerBlockItem("magenta_silk_carpet", BlockRegistry.MAGENTA_SILK_CARPET);
         PINK_SILK_CARPET = registerBlockItem("pink_silk_carpet", BlockRegistry.PINK_SILK_CARPET);
+
+        SNAIL_SLIME = registerItem("snail_slime", Item::new);
+        SNAIL_SLIME_BOTTLE = registerBlockItemWithCustomItemName("snail_slime_bottle", BlockRegistry.SNAIL_TRAIL);
+        SNAIL_SLIME_BLOCK = registerBlockItem("snail_slime_block", BlockRegistry.SNAIL_SLIME_BLOCK);
     }
 
     private static Item registerBlockItem(String name, Block block) {

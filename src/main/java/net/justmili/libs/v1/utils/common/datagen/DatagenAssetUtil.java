@@ -161,6 +161,14 @@ public class DatagenAssetUtil {
         }
     }
 
+    public final void createNonTemplateModelBlock(Block block) {
+        createNonTemplateModelBlock(block, block);
+    }
+
+    public final void createNonTemplateModelBlock(Block block, Block donor) {
+        blockGen.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelLocationUtils.getModelLocation(donor))));
+    }
+
     public enum RotationType {
         NONE,
         HORIZONTAL_Y, // S/W/N/E y-axis

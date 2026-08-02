@@ -1,15 +1,14 @@
 package net.justmili.bugs.registries;
 
 import net.justmili.bugs.BugMod;
+import net.justmili.bugs.content.block.SnailSlimeTrail;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CarpetBlock;
-import net.minecraft.world.level.block.TripWireBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.Function;
 
@@ -24,7 +23,7 @@ public class BlockRegistry {
         WHITE_SILK_CARPET, LIGHT_GRAY_SILK_CARPET, GRAY_SILK_CARPET, BLACK_SILK_CARPET,
         BROWN_SILK_CARPET, RED_SILK_CARPET, ORANGE_SILK_CARPET, YELLOW_SILK_CARPET,
         LIME_SILK_CARPET, GREEN_SILK_CARPET, CYAN_SILK_CARPET, LIGHT_BLUE_SILK_CARPET, BLUE_SILK_CARPET,
-        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET;
+        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET, SNAIL_TRAIL, SNAIL_SLIME_BLOCK;
 
     static {
         SILK_TRIPWIRE = copyAndRegister("silk_tripwire", Blocks.TRIPWIRE, p -> new TripWireBlock(Blocks.TRIPWIRE_HOOK, p));
@@ -62,6 +61,9 @@ public class BlockRegistry {
         PURPLE_SILK_CARPET = copyCarpetAndRegister("purple_silk_carpet", Blocks.PURPLE_CARPET);
         MAGENTA_SILK_CARPET = copyCarpetAndRegister("magenta_silk_carpet", Blocks.MAGENTA_CARPET);
         PINK_SILK_CARPET = copyCarpetAndRegister("pink_silk_carpet", Blocks.PINK_CARPET);
+
+        SNAIL_TRAIL = register("snail_slime_trail", SnailSlimeTrail::new);
+        SNAIL_SLIME_BLOCK = copyAndRegister("snail_slime_block", Blocks.SLIME_BLOCK, p -> new SlimeBlock(p.pushReaction(PushReaction.DESTROY)));
     }
 
     private static Block copyWoolAndRegister(String name, Block blockToCopy) {
@@ -81,7 +83,7 @@ public class BlockRegistry {
             block.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, id))));
     }
 
-    public static Block[] getBlocks() {
+    public static Block[] getSilkBlocks() {
         return new Block[] {
             SILK_TRIPWIRE, WHITE_SILK, LIGHT_GRAY_SILK, GRAY_SILK, BLACK_SILK,
             BROWN_SILK, RED_SILK, ORANGE_SILK, YELLOW_SILK,

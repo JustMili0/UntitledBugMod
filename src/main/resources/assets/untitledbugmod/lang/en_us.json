@@ -1,8 +1,10 @@
 {
-  "item_group.untitledbugmod.creative_tab": "Untitled Bugs Mod",
+  "item_group.untitledbugmod.content": "Untitled Bugs Mod",
   "item.untitledbugmod.copper_shears": "Copper Shears",
   "item.untitledbugmod.bug_net": "Bug Net",
   "item.untitledbugmod.silk": "Silk",
+  "item.untitledbugmod.snail_slime": "Snail Slime",
+  "item.untitledbugmod.snail_slime_bottle": "Bottle of Snail Slime",
   "block.untitledbugmod.silk_tripwire": "Tripwire",
   "block.untitledbugmod.white_silk": "White Silk",
   "block.untitledbugmod.light_gray_silk": "Light Gray Silk",
@@ -35,5 +37,6 @@
   "block.untitledbugmod.blue_silk_carpet": "Blue Silk Carpet",
   "block.untitledbugmod.purple_silk_carpet": "Purple Silk Carpet",
   "block.untitledbugmod.magenta_silk_carpet": "Magenta Silk Carpet",
-  "block.untitledbugmod.pink_silk_carpet": "Pink Silk Carpet"
+  "block.untitledbugmod.pink_silk_carpet": "Pink Silk Carpet",
+  "block.untitledbugmod.snail_slime_block": "Block of Snail Slime"
 }
