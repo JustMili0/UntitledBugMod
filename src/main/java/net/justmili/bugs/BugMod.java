@@ -9,6 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class BugMod implements ModInitializer {
     public static final String MODID = "untitledbugmod";
+    public static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("UntitledBugMod");
 
     @Override
     public void onInitialize() {

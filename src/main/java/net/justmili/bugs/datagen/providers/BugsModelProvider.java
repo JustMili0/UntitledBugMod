@@ -44,6 +44,7 @@ public class BugsModelProvider extends FabricModelProvider {
         var gen = new DatagenAssetUtil(BugMod.MODID, itemGen);
 
         gen.createFlatItem(ItemRegistry.COPPER_SHEARS);
+        itemGen.declareCustomModelItem(ItemRegistry.BUG_NET);
         gen.createFlatBlockItem(BlockRegistry.SILK_TRIPWIRE);
     }
 }

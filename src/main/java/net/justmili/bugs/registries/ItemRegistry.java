@@ -1,6 +1,7 @@
 package net.justmili.bugs.registries;
 
 import net.justmili.bugs.BugMod;
+import net.justmili.bugs.content.item.BugNet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -17,7 +18,7 @@ public class ItemRegistry {
     public static void init() {}
 
     public static final Item
-        COPPER_SHEARS, SILK, WHITE_SILK, LIGHT_GRAY_SILK, GRAY_SILK, BLACK_SILK,
+        COPPER_SHEARS, BUG_NET, SILK, WHITE_SILK, LIGHT_GRAY_SILK, GRAY_SILK, BLACK_SILK,
         BROWN_SILK, RED_SILK, ORANGE_SILK, YELLOW_SILK,
         LIME_SILK, GREEN_SILK, CYAN_SILK, LIGHT_BLUE_SILK, BLUE_SILK,
         PURPLE_SILK, MAGENTA_SILK, PINK_SILK,
@@ -28,6 +29,7 @@ public class ItemRegistry {
 
     static {
         COPPER_SHEARS = registerItem("copper_shears", p -> new ShearsItem(p.durability(126).component(DataComponents.TOOL, ShearsItem.createToolProperties())));
+        BUG_NET = registerItem("bug_net", BugNet::new);
         SILK = registerBlockItemWithCustomItemName("silk", BlockRegistry.SILK_TRIPWIRE);
 
         WHITE_SILK = registerBlockItem("white_silk", BlockRegistry.WHITE_SILK);

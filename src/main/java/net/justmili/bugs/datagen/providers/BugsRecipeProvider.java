@@ -34,6 +34,22 @@ public class BugsRecipeProvider extends FabricRecipeProvider {
                 var building = RecipeCategory.BUILDING_BLOCKS;
                 var decoration = RecipeCategory.DECORATIONS;
 
+                shaped(decoration, ItemRegistry.COPPER_SHEARS, 1)
+                    .define('#', Items.COPPER_INGOT)
+                    .pattern(" #")
+                    .pattern("# ")
+                    .unlockedBy("has_copper", has(Items.COPPER_INGOT))
+                    .save(output, newRecipeKey("copper_shears"));
+
+                shaped(decoration, ItemRegistry.BUG_NET, 3)
+                    .define('/', Items.STICK)
+                    .define('@', ItemRegistry.SILK)
+                    .pattern("  /")
+                    .pattern(" /@")
+                    .pattern("/@@")
+                    .unlockedBy("has_silk", has(ItemRegistry.SILK))
+                    .save(output, newRecipeKey("bug_net"));
+
                 gen.shaped2x2(building, ItemRegistry.SILK, ItemRegistry.WHITE_SILK, 1);
 
                 shapeless(building, BlockRegistry.WHITE_SILK)

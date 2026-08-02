@@ -10,7 +10,7 @@
 
 - Start working on entities, their logic and blocks and interactions with other mobs
 
-- Add bug net
+- Add capturing logic to the Bug Net
 - Add Bugopedia
 
 - Add advancements

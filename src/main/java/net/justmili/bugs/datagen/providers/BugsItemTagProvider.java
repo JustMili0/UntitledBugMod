@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,6 +23,9 @@ public class BugsItemTagProvider extends IntrinsicHolderTagsProvider<Item> {
 
         this.tag(ConventionalItemTags.SHEAR_TOOLS)
             .add(ItemRegistry.COPPER_SHEARS);
+
+        this.tag(ItemTagRegistry.BUG_NET_REPAIRABLES)
+            .add(Items.BAMBOO, ItemRegistry.SILK, Items.SCAFFOLDING); // Funny, scaffolding
 
         this.tag(ConventionalItemTags.STRINGS)
             .add(ItemRegistry.SILK);

@@ -1,0 +1,34 @@
+package net.justmili.bugs.mixin;
+
+import com.llamalad7.mixinextras.injector.ModifyReceiver;
+import net.justmili.bugs.BugMod;
+import net.justmili.bugs.registries.ItemRegistry;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.item.ItemModelResolver;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
+import net.minecraft.world.entity.ItemOwner;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+
+@Mixin(ItemModelResolver.class)
+public abstract class ItemModelResolverMixin {
+
+    @ModifyReceiver(
+        method = "appendItemLayers(Lnet/minecraft/client/renderer/item/ItemStackRenderState;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/ItemOwner;I)V",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/item/ItemModel;update(Lnet/minecraft/client/renderer/item/ItemStackRenderState;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/client/renderer/item/ItemModelResolver;Lnet/minecraft/world/item/ItemDisplayContext;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/world/entity/ItemOwner;I)V"))
+    private ItemModel bugNetFlatSprite(ItemModel model, ItemStackRenderState renderState, ItemStack stack, ItemModelResolver resolver,
+                                              ItemDisplayContext displayContext, ClientLevel level, ItemOwner owner, int seed) {
+        if (stack.getItem() != ItemRegistry.BUG_NET) return model;
+
+        boolean showIn2D = (displayContext == ItemDisplayContext.GUI
+            || displayContext == ItemDisplayContext.GROUND
+            || displayContext == ItemDisplayContext.ON_SHELF
+            || displayContext == ItemDisplayContext.FIXED);
+        if (showIn2D) return resolver.getItemModel(BugMod.asId("bug_net_flat"));
+
+        return model;
+    }
+}
