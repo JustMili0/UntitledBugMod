@@ -8,8 +8,6 @@ import net.justmili.bugs.registries.ItemRegistry;
 import net.justmili.libs.v1.utils.common.datagen.DatagenAssetUtil;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
 
 public class BugsModelProvider extends FabricModelProvider {
     public BugsModelProvider(FabricPackOutput output) {
@@ -40,7 +38,7 @@ public class BugsModelProvider extends FabricModelProvider {
         gen.createCubeAndCarpet(BlockRegistry.MAGENTA_SILK, BlockRegistry.MAGENTA_SILK_CARPET, noRotation);
         gen.createCubeAndCarpet(BlockRegistry.PINK_SILK, BlockRegistry.PINK_SILK_CARPET, noRotation);
 
-        gen.createNonTemplateModelBlock(BlockRegistry.SNAIL_TRAIL); // TODO: make model orientable, have different connecting blockstates like the tripwire, make textures
+        gen.createNonTemplateConnectable(BlockRegistry.SNAIL_TRAIL);
         gen.createNonTemplateModelBlock(BlockRegistry.SNAIL_SLIME_BLOCK);
     }
 

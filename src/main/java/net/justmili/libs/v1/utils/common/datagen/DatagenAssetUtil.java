@@ -169,6 +169,32 @@ public class DatagenAssetUtil {
         blockGen.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelLocationUtils.getModelLocation(donor))));
     }
 
+    public void createNonTemplateConnectable(Block block) {
+        var R90 = BlockModelGenerators.Y_ROT_90;
+        var R180 = BlockModelGenerators.Y_ROT_180;
+        var R270 = BlockModelGenerators.Y_ROT_270;
+
+        blockGen.blockStateOutput.accept(
+            MultiVariantGenerator.dispatch(block).with(PropertyDispatch.initial(BlockStateProperties.EAST, BlockStateProperties.NORTH, BlockStateProperties.SOUTH, BlockStateProperties.WEST)
+                .select(false, false, false, false, getPlainVariantModelLoc(block, "_ns"))
+                .select(false, true, false, false, getPlainVariantModelLoc(block, "_n"))
+                .select(true, false, false, false, getPlainVariantModelLoc(block, "_n").with(R90))
+                .select(false, false, true, false, getPlainVariantModelLoc(block, "_n").with(R180))
+                .select(false, false, false, true, getPlainVariantModelLoc(block, "_n").with(R270))
+                .select(true, true, false, false, getPlainVariantModelLoc(block, "_ne"))
+                .select(true, false, true, false, getPlainVariantModelLoc(block, "_ne").with(R90))
+                .select(false, false, true, true, getPlainVariantModelLoc(block, "_ne").with(R180))
+                .select(false, true, false, true, getPlainVariantModelLoc(block, "_ne").with(R270))
+                .select(false, true, true, false, getPlainVariantModelLoc(block, "_ns"))
+                .select(true, false, false, true, getPlainVariantModelLoc(block, "_ns").with(R90))
+                .select(true, true, true, false, getPlainVariantModelLoc(block, "_nse"))
+                .select(true, false, true, true, getPlainVariantModelLoc(block, "_nse").with(R90))
+                .select(false, true, true, true, getPlainVariantModelLoc(block, "_nse").with(R180))
+                .select(true, true, false, true, getPlainVariantModelLoc(block, "_nse").with(R270))
+                .select(true, true, true, true, getPlainVariantModelLoc(block, "_nsew"))
+            ));
+    }
+
     public enum RotationType {
         NONE,
         HORIZONTAL_Y, // S/W/N/E y-axis

@@ -64,6 +64,7 @@ public class BlockRegistry {
 
         SNAIL_TRAIL = register("snail_slime_trail", SnailSlimeTrail::new);
         SNAIL_SLIME_BLOCK = copyAndRegister("snail_slime_block", Blocks.SLIME_BLOCK, p -> new SlimeBlock(p.pushReaction(PushReaction.DESTROY)));
+        Blocks.REDSTONE_WIRE
     }
 
     private static Block copyWoolAndRegister(String name, Block blockToCopy) {
