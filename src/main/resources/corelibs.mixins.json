@@ -1,17 +1,15 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.justmili.bugs.mixin",
+  "package": "net.justmili.libs.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixinextras": {
     "minVersion": "0.5.0"
   },
   "mixins": [
-    "ShearsItemMixin",
-    "TripWireBlockMixin",
-    "TripWireHookBlockMixin"
   ],
   "client": [
+    "ItemModelResolverMixin"
   ],
   "injectors": {
     "defaultRequire": 1
