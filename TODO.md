@@ -1,5 +1,7 @@
 - Add missing textures and models for snail slime stuff from Pollo (awaiting)
 
+- Add bug catching to the bug net + models depending on caught bug
+
 - Make snail slime trails fade away
 - Make bottles of snail slime turn into bottles when crafting instead of getting used up
 - Add RC with empty bottle on Snail Slime Trail to get Snail Slime Bottle
