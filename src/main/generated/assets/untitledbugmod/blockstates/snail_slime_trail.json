@@ -1,7 +1,7 @@
 {
   "variants": {
     "east=false,north=false,south=false,west=false": {
-      "model": "untitledbugmod:block/snail_slime_trail_ns"
+      "model": "untitledbugmod:block/snail_slime_trail"
     },
     "east=false,north=false,south=false,west=true": {
       "model": "untitledbugmod:block/snail_slime_trail_n",

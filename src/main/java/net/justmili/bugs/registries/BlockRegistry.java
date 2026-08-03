@@ -1,14 +1,17 @@
 package net.justmili.bugs.registries;
 
 import net.justmili.bugs.BugMod;
+import net.justmili.bugs.content.block.SnailSlimeBlock;
 import net.justmili.bugs.content.block.SnailSlimeTrail;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CarpetBlock;
+import net.minecraft.world.level.block.TripWireBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.Function;
 
@@ -63,8 +66,7 @@ public class BlockRegistry {
         PINK_SILK_CARPET = copyCarpetAndRegister("pink_silk_carpet", Blocks.PINK_CARPET);
 
         SNAIL_TRAIL = register("snail_slime_trail", SnailSlimeTrail::new);
-        SNAIL_SLIME_BLOCK = copyAndRegister("snail_slime_block", Blocks.SLIME_BLOCK, p -> new SlimeBlock(p.pushReaction(PushReaction.DESTROY)));
-        Blocks.REDSTONE_WIRE
+        SNAIL_SLIME_BLOCK = register("snail_slime_block", SnailSlimeBlock::new);
     }
 
     private static Block copyWoolAndRegister(String name, Block blockToCopy) {

@@ -17,24 +17,43 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SnailSlimeTrail extends Block {
-    public static final BooleanProperty NORTH = BlockStateProperties.NORTH, EAST = BlockStateProperties.EAST,
-        SOUTH = BlockStateProperties.SOUTH, WEST = BlockStateProperties.WEST;
-    private static final VoxelShape SHAPE_NSEW = Block.box(3, 0, 3, 13, 1, 13);
+    public static final BooleanProperty NORTH, EAST, SOUTH, WEST;
+    private static final VoxelShape ARM_NONE, ARM_NORTH, ARM_SOUTH, ARM_EAST, ARM_WEST;
 
     public SnailSlimeTrail(Properties properties) {
-        super(properties.instabreak().noCollision().mapColor(MapColor.COLOR_LIGHT_GREEN).sound(SoundType.SLIME_BLOCK)
-            .isSuffocating(BlockBehaviorUtil::never).isViewBlocking(BlockBehaviorUtil::never).isValidSpawn(BlockBehaviorUtil::never));
+        super(properties.instabreak().mapColor(MapColor.SAND).pushReaction(PushReaction.DESTROY).sound(SoundType.SLIME_BLOCK)
+            .noCollision().isSuffocating(BlockBehaviorUtil::never).isViewBlocking(BlockBehaviorUtil::never).isValidSpawn(BlockBehaviorUtil::never));
         this.registerDefaultState(this.stateDefinition.any()
             .setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false));
     }
 
+    static {
+        NORTH = BlockStateProperties.NORTH;
+        EAST = BlockStateProperties.EAST;
+        SOUTH = BlockStateProperties.SOUTH;
+        WEST = BlockStateProperties.WEST;
+
+        ARM_NONE = Block.box(3, 0, 3, 13, 1, 13);
+        ARM_NORTH = Block.box(3, 0, 0, 13, 1, 3);
+        ARM_SOUTH = Block.box(3, 0, 13, 13, 1, 16);
+        ARM_EAST = Block.box(13, 0, 3, 16, 1, 13);
+        ARM_WEST = Block.box(0, 0, 3, 3, 1, 13);
+    }
+
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        return SHAPE_NSEW;
+        VoxelShape shape = ARM_NONE;
+        if (state.getValue(NORTH)) shape = Shapes.or(shape, ARM_NORTH);
+        if (state.getValue(SOUTH)) shape = Shapes.or(shape, ARM_SOUTH);
+        if (state.getValue(EAST)) shape = Shapes.or(shape, ARM_EAST);
+        if (state.getValue(WEST)) shape = Shapes.or(shape, ARM_WEST);
+        return shape;
     }
 
     private boolean shouldConnectTo(BlockState neighborState) {

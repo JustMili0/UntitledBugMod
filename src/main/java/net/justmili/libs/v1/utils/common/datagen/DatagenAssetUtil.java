@@ -6,6 +6,7 @@ import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.block.dispatch.VariantMutator;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
@@ -14,6 +15,9 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 
 public class DatagenAssetUtil {
+    public static final VariantMutator Y_ROT_90 = BlockModelGenerators.Y_ROT_90;
+    public static final VariantMutator Y_ROT_180 = BlockModelGenerators.Y_ROT_180;
+    public static final VariantMutator Y_ROT_270 = BlockModelGenerators.Y_ROT_270;
     private BlockModelGenerators blockGen;
     private ItemModelGenerators itemGen;
     private final String modId;
@@ -170,27 +174,23 @@ public class DatagenAssetUtil {
     }
 
     public void createNonTemplateConnectable(Block block) {
-        var R90 = BlockModelGenerators.Y_ROT_90;
-        var R180 = BlockModelGenerators.Y_ROT_180;
-        var R270 = BlockModelGenerators.Y_ROT_270;
-
         blockGen.blockStateOutput.accept(
             MultiVariantGenerator.dispatch(block).with(PropertyDispatch.initial(BlockStateProperties.EAST, BlockStateProperties.NORTH, BlockStateProperties.SOUTH, BlockStateProperties.WEST)
-                .select(false, false, false, false, getPlainVariantModelLoc(block, "_ns"))
+                .select(false, false, false, false, getPlainVariantModelLoc(block))
                 .select(false, true, false, false, getPlainVariantModelLoc(block, "_n"))
-                .select(true, false, false, false, getPlainVariantModelLoc(block, "_n").with(R90))
-                .select(false, false, true, false, getPlainVariantModelLoc(block, "_n").with(R180))
-                .select(false, false, false, true, getPlainVariantModelLoc(block, "_n").with(R270))
+                .select(true, false, false, false, getPlainVariantModelLoc(block, "_n").with(Y_ROT_90))
+                .select(false, false, true, false, getPlainVariantModelLoc(block, "_n").with(Y_ROT_180))
+                .select(false, false, false, true, getPlainVariantModelLoc(block, "_n").with(Y_ROT_270))
                 .select(true, true, false, false, getPlainVariantModelLoc(block, "_ne"))
-                .select(true, false, true, false, getPlainVariantModelLoc(block, "_ne").with(R90))
-                .select(false, false, true, true, getPlainVariantModelLoc(block, "_ne").with(R180))
-                .select(false, true, false, true, getPlainVariantModelLoc(block, "_ne").with(R270))
+                .select(true, false, true, false, getPlainVariantModelLoc(block, "_ne").with(Y_ROT_90))
+                .select(false, false, true, true, getPlainVariantModelLoc(block, "_ne").with(Y_ROT_180))
+                .select(false, true, false, true, getPlainVariantModelLoc(block, "_ne").with(Y_ROT_270))
                 .select(false, true, true, false, getPlainVariantModelLoc(block, "_ns"))
-                .select(true, false, false, true, getPlainVariantModelLoc(block, "_ns").with(R90))
+                .select(true, false, false, true, getPlainVariantModelLoc(block, "_ns").with(Y_ROT_90))
                 .select(true, true, true, false, getPlainVariantModelLoc(block, "_nse"))
-                .select(true, false, true, true, getPlainVariantModelLoc(block, "_nse").with(R90))
-                .select(false, true, true, true, getPlainVariantModelLoc(block, "_nse").with(R180))
-                .select(true, true, false, true, getPlainVariantModelLoc(block, "_nse").with(R270))
+                .select(true, false, true, true, getPlainVariantModelLoc(block, "_nse").with(Y_ROT_90))
+                .select(false, true, true, true, getPlainVariantModelLoc(block, "_nse").with(Y_ROT_180))
+                .select(true, true, false, true, getPlainVariantModelLoc(block, "_nse").with(Y_ROT_270))
                 .select(true, true, true, true, getPlainVariantModelLoc(block, "_nsew"))
             ));
     }
@@ -206,45 +206,44 @@ public class DatagenAssetUtil {
      * Functional block templates
      */
     public void createTripwire(Block block) {
-        var R90 = BlockModelGenerators.Y_ROT_90;
-        var R180 = BlockModelGenerators.Y_ROT_180;
-        var R270 = BlockModelGenerators.Y_ROT_270;
-
         blockGen.blockStateOutput.accept(
             MultiVariantGenerator.dispatch(block).with(PropertyDispatch.initial(BlockStateProperties.ATTACHED, BlockStateProperties.EAST, BlockStateProperties.NORTH, BlockStateProperties.SOUTH, BlockStateProperties.WEST)
                 .select(false, false, false, false, false, getPlainVariantModelLoc(block, "_ns"))
-                .select(false, true, false, false, false, getPlainVariantModelLoc(block, "_n").with(R90))
+                .select(false, true, false, false, false, getPlainVariantModelLoc(block, "_n").with(Y_ROT_90))
                 .select(false, false, true, false, false, getPlainVariantModelLoc(block, "_n"))
-                .select(false, false, false, true, false, getPlainVariantModelLoc(block, "_n").with(R180))
-                .select(false, false, false, false, true, getPlainVariantModelLoc(block, "_n").with(R270))
+                .select(false, false, false, true, false, getPlainVariantModelLoc(block, "_n").with(Y_ROT_180))
+                .select(false, false, false, false, true, getPlainVariantModelLoc(block, "_n").with(Y_ROT_270))
                 .select(false, true, true, false, false, getPlainVariantModelLoc(block, "_ne"))
-                .select(false, true, false, true, false, getPlainVariantModelLoc(block, "_ne").with(R90))
-                .select(false, false, false, true, true, getPlainVariantModelLoc(block, "_ne").with(R180))
-                .select(false, false, true, false, true, getPlainVariantModelLoc(block, "_ne").with(R270))
+                .select(false, true, false, true, false, getPlainVariantModelLoc(block, "_ne").with(Y_ROT_90))
+                .select(false, false, false, true, true, getPlainVariantModelLoc(block, "_ne").with(Y_ROT_180))
+                .select(false, false, true, false, true, getPlainVariantModelLoc(block, "_ne").with(Y_ROT_270))
                 .select(false, false, true, true, false, getPlainVariantModelLoc(block, "_ns"))
-                .select(false, true, false, false, true, getPlainVariantModelLoc(block, "_ns").with(R90))
+                .select(false, true, false, false, true, getPlainVariantModelLoc(block, "_ns").with(Y_ROT_90))
                 .select(false, true, true, true, false, getPlainVariantModelLoc(block, "_nse"))
-                .select(false, true, false, true, true, getPlainVariantModelLoc(block, "_nse").with(R90))
-                .select(false, false, true, true, true, getPlainVariantModelLoc(block, "_nse").with(R180))
-                .select(false, true, true, false, true, getPlainVariantModelLoc(block, "_nse").with(R270))
+                .select(false, true, false, true, true, getPlainVariantModelLoc(block, "_nse").with(Y_ROT_90))
+                .select(false, false, true, true, true, getPlainVariantModelLoc(block, "_nse").with(Y_ROT_180))
+                .select(false, true, true, false, true, getPlainVariantModelLoc(block, "_nse").with(Y_ROT_270))
                 .select(false, true, true, true, true, getPlainVariantModelLoc(block, "_nsew"))
                 .select(true, false, false, false, false, getPlainVariantModelLoc(block, "_attached_ns"))
                 .select(true, false, true, false, false, getPlainVariantModelLoc(block, "_attached_n"))
-                .select(true, false, false, true, false, getPlainVariantModelLoc(block, "_attached_n").with(R180))
-                .select(true, true, false, false, false, getPlainVariantModelLoc(block, "_attached_n").with(R90))
-                .select(true, false, false, false, true, getPlainVariantModelLoc(block, "_attached_n").with(R270))
+                .select(true, false, false, true, false, getPlainVariantModelLoc(block, "_attached_n").with(Y_ROT_180))
+                .select(true, true, false, false, false, getPlainVariantModelLoc(block, "_attached_n").with(Y_ROT_90))
+                .select(true, false, false, false, true, getPlainVariantModelLoc(block, "_attached_n").with(Y_ROT_270))
                 .select(true, true, true, false, false, getPlainVariantModelLoc(block, "_attached_ne"))
-                .select(true, true, false, true, false, getPlainVariantModelLoc(block, "_attached_ne").with(R90))
-                .select(true, false, false, true, true, getPlainVariantModelLoc(block, "_attached_ne").with(R180))
-                .select(true, false, true, false, true, getPlainVariantModelLoc(block, "_attached_ne").with(R270))
+                .select(true, true, false, true, false, getPlainVariantModelLoc(block, "_attached_ne").with(Y_ROT_90))
+                .select(true, false, false, true, true, getPlainVariantModelLoc(block, "_attached_ne").with(Y_ROT_180))
+                .select(true, false, true, false, true, getPlainVariantModelLoc(block, "_attached_ne").with(Y_ROT_270))
                 .select(true, false, true, true, false, getPlainVariantModelLoc(block, "_attached_ns"))
-                .select(true, true, false, false, true, getPlainVariantModelLoc(block, "_attached_ns").with(R90))
+                .select(true, true, false, false, true, getPlainVariantModelLoc(block, "_attached_ns").with(Y_ROT_90))
                 .select(true, true, true, true, false, getPlainVariantModelLoc(block, "_attached_nse"))
-                .select(true, true, false, true, true, getPlainVariantModelLoc(block, "_attached_nse").with(R90))
-                .select(true, false, true, true, true, getPlainVariantModelLoc(block, "_attached_nse").with(R180))
-                .select(true, true, true, false, true, getPlainVariantModelLoc(block, "_attached_nse").with(R270))
+                .select(true, true, false, true, true, getPlainVariantModelLoc(block, "_attached_nse").with(Y_ROT_90))
+                .select(true, false, true, true, true, getPlainVariantModelLoc(block, "_attached_nse").with(Y_ROT_180))
+                .select(true, true, true, false, true, getPlainVariantModelLoc(block, "_attached_nse").with(Y_ROT_270))
                 .select(true, true, true, true, true, getPlainVariantModelLoc(block, "_attached_nsew"))
             ));
+    }
+    private MultiVariant getPlainVariantModelLoc(Block block) {
+        return plainVariant(ModelLocationUtils.getModelLocation(block));
     }
     private MultiVariant getPlainVariantModelLoc(Block block, String suffix) {
         return plainVariant(ModelLocationUtils.getModelLocation(block, suffix));

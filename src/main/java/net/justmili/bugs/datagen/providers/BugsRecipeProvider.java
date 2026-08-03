@@ -277,6 +277,11 @@ public class BugsRecipeProvider extends FabricRecipeProvider {
                     .requires(silkCarpets).requires(Items.PINK_DYE)
                     .unlockedBy("has_pink_dye", has(Items.PINK_DYE))
                     .save(output, newRecipeKey("pink_silk_carpet_from_dying"));
+
+                gen.shaped2x2(RecipeCategory.REDSTONE, ItemRegistry.SNAIL_SLIME_BOTTLE, ItemRegistry.SNAIL_SLIME_BLOCK, 1);
+
+                // Snail Slime + Water Bottle = Weakness
+                // Silk + Awkward potion = Weaving
             }
         };
     }

@@ -1,10 +1,12 @@
-- Add all textures from Pollo (awaiting)
+- Add missing textures and models for snail slime stuff from Pollo (awaiting)
 
-- Add snail slime
-  - Snail Slime Trail (decays)
-  - Snail slimeball (Gotten from breaking slime trails)
-  - Bottled Snail Slime (Gotten from RCing slime trails)
-  - Snail Slime Block (Made of 4 bottles of snail slime or 4 snail slimeballs)
+- Make snail slime trails fade away
+- Make bottles of snail slime turn into bottles when crafting instead of getting used up
+- Add RC with empty bottle on Snail Slime Trail to get Snail Slime Bottle
+- Add recipes to substitute slimeballs for snail slime
+- Code the potion recipes
+
+- Add all remaining textures and models from Pollo (awaiting)
 
 - Start working on entities, their logic and blocks and interactions with other mobs
 
