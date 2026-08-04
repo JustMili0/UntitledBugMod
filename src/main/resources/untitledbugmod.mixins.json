@@ -12,6 +12,7 @@
     "TripWireHookBlockMixin"
   ],
   "client": [
+    "client.ItemModelResolverMixin"
   ],
   "injectors": {
     "defaultRequire": 1

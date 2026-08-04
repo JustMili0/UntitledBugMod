@@ -2,6 +2,7 @@ package net.justmili.bugs;
 
 import net.fabricmc.api.ModInitializer;
 import net.justmili.bugs.registries.BlockRegistry;
+import net.justmili.bugs.registries.DataComponentRegistry;
 import net.justmili.bugs.registries.ItemRegistry;
 import net.justmili.bugs.registries.TabRegistry;
 import net.justmili.libs.v1.utils.common.ResourceUtil;
@@ -15,6 +16,7 @@ public class BugMod implements ModInitializer {
     public void onInitialize() {
         BlockRegistry.init();
         ItemRegistry.init();
+        DataComponentRegistry.init();
         TabRegistry.init();
     }
 

@@ -4,8 +4,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"1": "untitledbugmod:item/bug_net",
-		"2": "minecraft:entity/bee",
-		"particle": "Desktop/bee"
+		"2": "untitledbugmod:item/bug_net_caught/mobs/bee"
 	},
 	"elements": [
 		{
@@ -341,9 +340,9 @@
 			"scale": [0.8, 0.8, 0.8]
 		},
 		"firstperson_righthand": {
-			"rotation": [-12, 8, -16],
-			"translation": [2, -1.5, 0],
-			"scale": [0.8, 0.8, 0.8]
+			"rotation": [-165, 62.24, 165],
+			"translation": [4, -0.25, -2],
+			"scale": [0.7, 0.7, 0.7]
 		},
 		"firstperson_lefthand": {
 			"rotation": [-12, 8, -16],

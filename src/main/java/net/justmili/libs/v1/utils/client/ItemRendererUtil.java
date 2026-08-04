@@ -2,6 +2,7 @@ package net.justmili.libs.v1.utils.client;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +15,19 @@ public class ItemRendererUtil {
 
     public static void renderAsOther(Item item, Identifier otherItemModel, ItemDisplay... displayAt) {
         OVERRIDES.add(new Entry(item, otherItemModel, List.of(displayAt)));
+    }
+
+    public static ItemDisplay toItemDisplay(ItemDisplayContext context) {
+        return switch (context) {
+            case ItemDisplayContext.GUI -> ItemDisplay.GUI;
+            case ItemDisplayContext.GROUND -> ItemDisplay.ON_GROUND;
+            case ItemDisplayContext.FIXED -> ItemDisplay.FIXED;
+            case ItemDisplayContext.ON_SHELF -> ItemDisplay.ON_SHELF;
+            case ItemDisplayContext.HEAD -> ItemDisplay.HEAD;
+            case ItemDisplayContext.FIRST_PERSON_LEFT_HAND, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND -> ItemDisplay.FIRST_PERSON;
+            case ItemDisplayContext.THIRD_PERSON_LEFT_HAND, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND -> ItemDisplay.THIRD_PERSON;
+            default -> null;
+        };
     }
 
     public static Entry getOverrideItem(Item item) {
