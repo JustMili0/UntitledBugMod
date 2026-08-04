@@ -65,7 +65,7 @@ public abstract class ItemModelResolverMixin {
         boolean is2D = bugmod$RENDER_2D.contains(mapped);
         if (!is2D && !bugmod$RENDER_3D.contains(mapped)) return defaultModel;
 
-        String caughtId = BugNet.getCaughtId(stack);
+        String caughtId = BugNet.getEntityIdentifierString(stack);
 
         Identifier resolved = switch (caughtId) {
             case "minecraft:bee" -> is2D ? BEE_2D : BEE_3D;

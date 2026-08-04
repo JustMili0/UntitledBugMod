@@ -62,8 +62,8 @@ public class SnailSlimeTrail extends Block {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockGetter level = context.getLevel();
-        BlockPos pos = context.getClickedPos();
+        var level = context.getLevel();
+        var pos = context.getClickedPos();
         return this.defaultBlockState()
             .setValue(NORTH, shouldConnectTo(level.getBlockState(pos.north())))
             .setValue(EAST, shouldConnectTo(level.getBlockState(pos.east())))
@@ -74,10 +74,9 @@ public class SnailSlimeTrail extends Block {
     @Override
     protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos,
                                      Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
-        if (!directionToNeighbour.getAxis().isHorizontal()) {
+        if (!directionToNeighbour.getAxis().isHorizontal())
             return super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
-        }
-        BooleanProperty property = switch (directionToNeighbour) {
+        var property = switch (directionToNeighbour) {
             case NORTH -> NORTH;
             case EAST -> EAST;
             case SOUTH -> SOUTH;

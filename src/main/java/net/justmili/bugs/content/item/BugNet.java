@@ -50,7 +50,7 @@ public class BugNet extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag flag) {
         if (stack.has(BUG_NET_ENTITY_DATA)) {
-            var customName = getCaughtCustomName(stack);
+            var customName = getEntityCustomName(stack);
             if (customName.isPresent()) {
                 tooltipLine(builder, "item.untitledbugmod.tooltip.net_full_with_name", customName.get(), getCaughtEntityName(stack));
             } else {
@@ -157,21 +157,22 @@ public class BugNet extends Item {
         player.swing(InteractionHand.MAIN_HAND);
     }
 
-    public static Optional<Identifier> getCaughtIdentifier(ItemStack stack) {
+    // Some helpers to get names and stuff of the caught entity
+    public static Optional<Identifier> getEntityIdentifier(ItemStack stack) {
         var data = stack.get(BUG_NET_ENTITY_DATA);
         if (data == null) return Optional.empty();
 
         return data.copyTag().getString("id").filter(id -> !id.isEmpty())
             .flatMap(id -> Optional.ofNullable(Identifier.tryParse(id)));
     }
-    public static String getCaughtId(ItemStack stack) {
-        return getCaughtIdentifier(stack).map(Identifier::toString).orElse("unknown");
+    public static String getEntityIdentifierString(ItemStack stack) {
+        return getEntityIdentifier(stack).map(Identifier::toString).orElse("unknown");
     }
     public static Component getCaughtEntityName(ItemStack stack) {
-        return getCaughtIdentifier(stack).flatMap(BuiltInRegistries.ENTITY_TYPE::getOptional)
+        return getEntityIdentifier(stack).flatMap(BuiltInRegistries.ENTITY_TYPE::getOptional)
             .map(EntityType::getDescription).orElse(Component.literal("Unknown"));
     }
-    public static Optional<Component> getCaughtCustomName(ItemStack stack) {
+    public static Optional<Component> getEntityCustomName(ItemStack stack) {
         var data = stack.get(BUG_NET_ENTITY_DATA);
         if (data == null) return Optional.empty();
 

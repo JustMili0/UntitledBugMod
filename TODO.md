@@ -2,6 +2,7 @@
 
 - Add missing textures for 2D sprites
 - Add missing textures and models for snail slime stuff from Pollo (awaiting)
+- Fix copper shears still triggering the vanilla tripwire when attempting to disarm it
 
 - Make snail slime trails fade away
 - Make bottles of snail slime turn into bottles when crafting instead of getting used up
