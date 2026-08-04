@@ -28,11 +28,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
@@ -65,6 +67,7 @@ public class BugNet extends Item {
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
+        if (hand != InteractionHand.MAIN_HAND) return InteractionResult.PASS;
         if (stack.has(BUG_NET_ENTITY_DATA)) return InteractionResult.FAIL;
 
         if (!isCatchable(target)) return InteractionResult.PASS;
@@ -132,8 +135,20 @@ public class BugNet extends Item {
         }
 
         spawned.ifPresent(entity -> {
-            Vec3 pos = player.position().add(player.getLookAngle().scale(2));
-            entity.snapTo(pos.x, pos.y + 1, pos.z, entity.getYRot(), entity.getXRot());
+            var eyePos = player.getEyePosition();
+            var maxPos = eyePos.add(player.getLookAngle().scale(2.0));
+            var hitResult = level.clip(new ClipContext(eyePos, maxPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
+
+            Vec3 releasePos;
+            if (hitResult.getType() != HitResult.Type.BLOCK) {
+                releasePos = maxPos;
+            } else {
+                var blockFace = hitResult.getDirection();
+                var faceOffset = new Vec3(blockFace.getUnitVec3i()).scale(entity.getBbWidth() / 2.0 + 0.05);
+                releasePos = hitResult.getLocation().add(faceOffset);
+            }
+
+            entity.snapTo(releasePos, entity.getYRot(), entity.getXRot());
             level.addFreshEntity(entity);
             entity.level().playSound(null, entity.blockPosition(), SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 0.8f, 0.5f);
         });
