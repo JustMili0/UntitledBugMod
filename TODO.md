@@ -1,6 +1,5 @@
 - Make 3D models for all the other mob variants in the Bug Net other than bee
 
-- Change directory names from `bug_net_caught` to just `bug_net` and move the default textures and models to there as well
 - Add missing textures for 2D sprites
 - Add missing textures and models for snail slime stuff from Pollo (awaiting)
 

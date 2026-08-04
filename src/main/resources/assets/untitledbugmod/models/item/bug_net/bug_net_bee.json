@@ -4,7 +4,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"1": "untitledbugmod:item/bug_net",
-		"2": "untitledbugmod:item/bug_net_caught/mobs/bee"
+		"2": "untitledbugmod:item/bug_net/mobs/bee"
 	},
 	"elements": [
 		{

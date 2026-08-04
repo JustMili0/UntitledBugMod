@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "untitledbugmod:item/bug_net_caught/bug_net_bee_flat"
+    "model": "untitledbugmod:item/bug_net/bug_net_bee_flat"
   }
 }
