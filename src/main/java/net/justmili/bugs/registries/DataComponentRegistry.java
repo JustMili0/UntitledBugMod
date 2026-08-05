@@ -9,8 +9,10 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.world.item.component.CustomData;
 
 public class DataComponentRegistry {
+    public static DataComponentType<CustomData> BUG_NET_ENTITY_DATA;
+
     public static void init() {
-        BugNet.BUG_NET_ENTITY_DATA = register("bug_net_entity_data");
+        BUG_NET_ENTITY_DATA = register("bug_net_entity_data");
     }
 
     private static DataComponentType<CustomData> register(String name) {

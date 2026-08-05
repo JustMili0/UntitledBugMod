@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "untitledbugmod:item/bug_net/bug_net_cave_spider_flat"
+  }
+}

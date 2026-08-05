@@ -40,9 +40,9 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class BugNet extends Item {
-    public static DataComponentType<CustomData> BUG_NET_ENTITY_DATA;
+import static net.justmili.bugs.registries.DataComponentRegistry.BUG_NET_ENTITY_DATA;
 
+public class BugNet extends Item {
     public BugNet(Properties properties) {
         super(properties.durability(96).enchantable(14).repairable(ItemTagRegistry.BUG_NET_REPAIRABLES));
     }
@@ -68,44 +68,16 @@ public class BugNet extends Item {
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
         if (hand != InteractionHand.MAIN_HAND) return InteractionResult.PASS;
+        stack = player.getItemInHand(hand); // Mojang, why
         if (stack.has(BUG_NET_ENTITY_DATA)) return InteractionResult.FAIL;
 
-        if (!isCatchable(target)) return InteractionResult.PASS;
-        if (isHostileInsect(target) && !target.hasEffect(MobEffects.WEAKNESS)) return InteractionResult.FAIL;
-
-        var level = player.level();
-        if (level.isClientSide()) return InteractionResult.SUCCESS;
+        if (!target.is(EntityTypeTagRegistry.BUG_NET_CATCHABLE)) return InteractionResult.PASS;
+        if (target.is(EntityTypeTagRegistry.HOSTILE_INSECTS) && !target.hasEffect(MobEffects.WEAKNESS)) return InteractionResult.FAIL;
 
         capture(stack, target, player);
+        player.swing(hand);
         return InteractionResult.SUCCESS;
     }
-
-    @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        var stack = player.getItemInHand(hand);
-
-        if (player.isCrouching() && stack.has(BUG_NET_ENTITY_DATA)) {
-            release(stack, level, player);
-            player.swing(hand);
-            return InteractionResult.SUCCESS;
-        }
-
-        return InteractionResult.PASS;
-    }
-
-    @Override
-    public boolean canDestroyBlock(ItemStack stack, BlockState state, Level level, BlockPos pos, LivingEntity user) {
-        if (!(user instanceof Player player) || stack.has(BUG_NET_ENTITY_DATA)) return false;
-        return player.gameMode().isSurvival();
-    }
-
-    private boolean isCatchable(LivingEntity entity) {
-        return entity.is(EntityTypeTagRegistry.BUGS) || entity.is(EntityTypeTagRegistry.INSECTS) || entity.is(EntityTypeTagRegistry.HOSTILE_INSECTS);
-    }
-    private boolean isHostileInsect(LivingEntity entity) {
-        return entity.is(EntityTypeTagRegistry.HOSTILE_INSECTS);
-    }
-
     private void capture(ItemStack stack, LivingEntity entity, Player player) {
         CompoundTag tag;
         try (ProblemReporter.ScopedCollector reporter = new ProblemReporter.ScopedCollector(entity.problemPath(), BugMod.LOGGER)) {
@@ -120,6 +92,19 @@ public class BugNet extends Item {
         entity.discard();
 
         player.level().playSound(null, targetPos, SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL);
+    }
+
+    @Override
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        var stack = player.getItemInHand(hand);
+
+        if (player.isCrouching() && stack.has(BUG_NET_ENTITY_DATA)) {
+            release(stack, level, player);
+            player.swing(hand);
+            return InteractionResult.SUCCESS;
+        }
+
+        return InteractionResult.PASS;
     }
     private void release(ItemStack stack, Level level, Player player) {
         var data = stack.get(BUG_NET_ENTITY_DATA);
@@ -154,7 +139,12 @@ public class BugNet extends Item {
         });
 
         stack.remove(BUG_NET_ENTITY_DATA);
-        player.swing(InteractionHand.MAIN_HAND);
+    }
+
+    @Override
+    public boolean canDestroyBlock(ItemStack stack, BlockState state, Level level, BlockPos pos, LivingEntity user) {
+        if (!(user instanceof Player player) || stack.has(BUG_NET_ENTITY_DATA)) return false;
+        return player.gameMode().isSurvival();
     }
 
     // Some helpers to get names and stuff of the caught entity

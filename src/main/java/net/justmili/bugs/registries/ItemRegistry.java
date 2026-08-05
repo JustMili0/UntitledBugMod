@@ -67,6 +67,7 @@ public class ItemRegistry {
         PINK_SILK_CARPET = registerBlockItem("pink_silk_carpet", BlockRegistry.PINK_SILK_CARPET);
 
         SNAIL_SLIME = registerItem("snail_slime", Item::new);
+        // TODO: Snail Slime Bottle - How the fuck do I make it a BlockItem that is also a BottleItem???
         SNAIL_SLIME_BOTTLE = registerBlockItemWithCustomItemName("snail_slime_bottle", BlockRegistry.SNAIL_TRAIL);
         SNAIL_SLIME_BLOCK = registerBlockItem("snail_slime_block", BlockRegistry.SNAIL_SLIME_BLOCK);
     }

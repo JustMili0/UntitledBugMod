@@ -1,4 +1,4 @@
-package net.justmili.bugs.content.resource;
+package net.justmili.bugs.client.resource;
 
 import net.justmili.bugs.BugMod;
 import net.minecraft.resources.Identifier;

@@ -26,5 +26,7 @@ public class BugsEntityTypeTagProvider extends IntrinsicHolderTagsProvider<Entit
         //this.tag(EntityTypeTagRegistry.BEETLES).add();
         //this.tag(EntityTypeTagRegistry.MOLLUSKS).add();
 
+        this.tag(EntityTypeTagRegistry.BUG_NET_CATCHABLE) // TODO: add .addTag(EntityTypeTagRegistry.BUGS) after coding the bug type entities
+            .addTag(EntityTypeTagRegistry.INSECTS).addTag(EntityTypeTagRegistry.HOSTILE_INSECTS);
     }
 }

@@ -14,9 +14,9 @@ public class BugMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        DataComponentRegistry.init();
         BlockRegistry.init();
         ItemRegistry.init();
-        DataComponentRegistry.init();
         TabRegistry.init();
     }
 
