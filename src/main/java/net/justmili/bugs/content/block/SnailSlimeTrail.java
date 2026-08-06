@@ -24,7 +24,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SnailSlimeTrail extends Block {
     public static final BooleanProperty NORTH, EAST, SOUTH, WEST;
-    private static final VoxelShape ARM_NONE, ARM_NORTH, ARM_SOUTH, ARM_EAST, ARM_WEST;
+    private static final VoxelShape ARM_NONE, ARM_MID, ARM_NORTH, ARM_SOUTH, ARM_EAST, ARM_WEST;
 
     public SnailSlimeTrail(Properties properties) {
         super(properties.instabreak().mapColor(MapColor.SAND).pushReaction(PushReaction.DESTROY).sound(SoundType.SLIME_BLOCK)
@@ -40,19 +40,24 @@ public class SnailSlimeTrail extends Block {
         WEST = BlockStateProperties.WEST;
 
         ARM_NONE = Block.box(3, 0, 3, 13, 1, 13);
-        ARM_NORTH = Block.box(3, 0, 0, 13, 1, 3);
-        ARM_SOUTH = Block.box(3, 0, 13, 13, 1, 16);
-        ARM_EAST = Block.box(13, 0, 3, 16, 1, 13);
-        ARM_WEST = Block.box(0, 0, 3, 3, 1, 13);
+        ARM_MID = Block.box(4, 0, 4, 12, 1, 12);
+        ARM_NORTH = Block.box(4, 0, 0, 12, 1, 4);
+        ARM_SOUTH = Block.box(4, 0, 12, 12, 1, 16);
+        ARM_EAST = Block.box(12, 0, 4, 16, 1, 12);
+        ARM_WEST = Block.box(0, 0, 4, 4, 1, 12);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        VoxelShape shape = ARM_NONE;
-        if (state.getValue(NORTH)) shape = Shapes.or(shape, ARM_NORTH);
-        if (state.getValue(SOUTH)) shape = Shapes.or(shape, ARM_SOUTH);
-        if (state.getValue(EAST)) shape = Shapes.or(shape, ARM_EAST);
-        if (state.getValue(WEST)) shape = Shapes.or(shape, ARM_WEST);
+        boolean north = state.getValue(NORTH), south = state.getValue(SOUTH), east = state.getValue(EAST), west = state.getValue(WEST);
+        boolean connected = north || south || east || west;
+
+        var shape = connected ? ARM_MID : ARM_NONE;
+        if (north) shape = Shapes.or(shape, ARM_NORTH);
+        if (south) shape = Shapes.or(shape, ARM_SOUTH);
+        if (east) shape = Shapes.or(shape, ARM_EAST);
+        if (west) shape = Shapes.or(shape, ARM_WEST);
+
         return shape;
     }
 
