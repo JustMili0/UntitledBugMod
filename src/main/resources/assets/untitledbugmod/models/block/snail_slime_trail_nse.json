@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"0": "untitledbugmod:block/snail_slime_trail",
-		"particle": "untitledbugmod:block/snail_slime_trail"
+		"0": "untitledbugmod:block/snail_slime_trail_nse",
+		"particle": "untitledbugmod:block/snail_slime_trail_nse"
 	},
 	"elements": [
 		{
@@ -42,9 +42,9 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 13]},
 			"faces": {
 				"north": {"uv": [0, 0, 0, 0], "texture": "#0"},
-				"east": {"uv": [0, 2, 3, 2], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 0], "texture": "#0"},
 				"south": {"uv": [0, 0, 0, 0], "texture": "#0"},
-				"west": {"uv": [0, 2, 3, 2], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 0], "texture": "#0"},
 				"up": {"uv": [3, 13, 13, 16], "texture": "#0"},
 				"down": {"uv": [0, 0, 0, 0], "texture": "#0"}
 			}

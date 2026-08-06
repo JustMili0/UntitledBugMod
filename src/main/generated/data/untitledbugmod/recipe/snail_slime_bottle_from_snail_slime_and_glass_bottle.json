@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "untitledbugmod:snail_slime",
+    "minecraft:glass_bottle"
+  ],
+  "result": {
+    "id": "untitledbugmod:snail_slime_bottle"
+  }
+}

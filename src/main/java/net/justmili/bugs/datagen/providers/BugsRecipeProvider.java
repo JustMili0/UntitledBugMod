@@ -279,6 +279,8 @@ public class BugsRecipeProvider extends FabricRecipeProvider {
                     .save(output, newRecipeKey("pink_silk_carpet_from_dying"));
 
                 gen.shaped2x2(RecipeCategory.REDSTONE, ItemRegistry.SNAIL_SLIME_BOTTLE, ItemRegistry.SNAIL_SLIME_BLOCK, 1);
+                gen.shapeless(RecipeCategory.MISC, ItemRegistry.SNAIL_SLIME, ItemRegistry.SNAIL_SLIME_BOTTLE);
+                gen.shapeless(RecipeCategory.MISC, ItemRegistry.SNAIL_SLIME_BOTTLE, ItemRegistry.SNAIL_SLIME, Items.GLASS_BOTTLE);
 
                 // Snail Slime + Water Bottle = Weakness
                 // Silk + Awkward potion = Weaving
@@ -288,7 +290,7 @@ public class BugsRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public String getName() {
-        return "UntitledBugsModRecipeProvider";
+        return "Recipes";
     }
 
     public ResourceKey<Recipe<?>> newRecipeKey(String id) {

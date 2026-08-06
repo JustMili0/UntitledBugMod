@@ -1,7 +1,6 @@
 package net.justmili.bugs.registries;
 
 import net.justmili.bugs.BugMod;
-import net.justmili.bugs.content.item.BugNet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;

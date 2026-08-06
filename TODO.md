@@ -1,7 +1,6 @@
 - Finish 3D Bug Net models for Spider and Cave Spider variants
 
-- Add missing textures and models for snail slime stuff from Pollo (awaiting)
-- Make bottles of snail slime turn into bottles when crafting instead of getting used up
+- Add RC with empty bottle on Snail Slime Trail to get Snail Slime Bottle
 - Fix copper shears still triggering the vanilla tripwire when attempting to disarm it
 
 - Make snail slime trails fade away

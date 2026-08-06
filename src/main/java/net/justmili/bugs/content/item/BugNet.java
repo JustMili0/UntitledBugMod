@@ -5,7 +5,6 @@ import net.justmili.bugs.registries.EntityTypeTagRegistry;
 import net.justmili.bugs.registries.ItemTagRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
