@@ -5,7 +5,6 @@
 - Fix copper shears still triggering the vanilla tripwire when attempting to disarm it
 
 - Make snail slime trails fade away
-- Add RC with empty bottle on Snail Slime Trail to get Snail Slime Bottle
 - Add recipes to substitute slimeballs for snail slime
 - Code the potion recipes
 

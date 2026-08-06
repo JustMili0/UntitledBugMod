@@ -2,6 +2,7 @@ package net.justmili.bugs.registries;
 
 import net.justmili.bugs.BugMod;
 import net.justmili.bugs.content.item.BugNet;
+import net.justmili.bugs.content.item.SnailSlimeBottle;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -67,8 +68,7 @@ public class ItemRegistry {
         PINK_SILK_CARPET = registerBlockItem("pink_silk_carpet", BlockRegistry.PINK_SILK_CARPET);
 
         SNAIL_SLIME = registerItem("snail_slime", Item::new);
-        // TODO: Snail Slime Bottle - How the fuck do I make it a BlockItem that is also a BottleItem???
-        SNAIL_SLIME_BOTTLE = registerBlockItemWithCustomItemName("snail_slime_bottle", BlockRegistry.SNAIL_TRAIL);
+        SNAIL_SLIME_BOTTLE = registerItem("snail_slime_bottle", SnailSlimeBottle::new);
         SNAIL_SLIME_BLOCK = registerBlockItem("snail_slime_block", BlockRegistry.SNAIL_SLIME_BLOCK);
     }
 
