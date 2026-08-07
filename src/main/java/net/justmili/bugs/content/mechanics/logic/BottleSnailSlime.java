@@ -17,7 +17,7 @@ public class BottleSnailSlime {
         var block = level.getBlockState(blockPos);
         var stack = player.getItemInHand(hand);
 
-        if (block.is(BlockRegistry.SNAIL_TRAIL) && stack.is(Items.GLASS_BOTTLE)) {
+        if (block.is(BlockRegistry.SNAIL_SLIME_TRAIL) && stack.is(Items.GLASS_BOTTLE)) {
             LevelUtil.setAir(level, blockPos); // Set to air
             EntityUtil.consumeHeldWithResult(player, hand, ItemRegistry.SNAIL_SLIME_BOTTLE, true);
 

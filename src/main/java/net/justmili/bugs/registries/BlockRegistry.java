@@ -26,7 +26,7 @@ public class BlockRegistry {
         WHITE_SILK_CARPET, LIGHT_GRAY_SILK_CARPET, GRAY_SILK_CARPET, BLACK_SILK_CARPET,
         BROWN_SILK_CARPET, RED_SILK_CARPET, ORANGE_SILK_CARPET, YELLOW_SILK_CARPET,
         LIME_SILK_CARPET, GREEN_SILK_CARPET, CYAN_SILK_CARPET, LIGHT_BLUE_SILK_CARPET, BLUE_SILK_CARPET,
-        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET, SNAIL_TRAIL, SNAIL_SLIME_BLOCK;
+        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET, SNAIL_SLIME_TRAIL, SNAIL_SLIME_BLOCK;
 
     static {
         SILK_TRIPWIRE = copyAndRegister("silk_tripwire", Blocks.TRIPWIRE, p -> new TripWireBlock(Blocks.TRIPWIRE_HOOK, p));
@@ -65,7 +65,7 @@ public class BlockRegistry {
         MAGENTA_SILK_CARPET = copyCarpetAndRegister("magenta_silk_carpet", Blocks.MAGENTA_CARPET);
         PINK_SILK_CARPET = copyCarpetAndRegister("pink_silk_carpet", Blocks.PINK_CARPET);
 
-        SNAIL_TRAIL = register("snail_slime_trail", SnailSlimeTrail::new);
+        SNAIL_SLIME_TRAIL = register("snail_slime_trail", SnailSlimeTrail::new);
         SNAIL_SLIME_BLOCK = register("snail_slime_block", SnailSlimeBlock::new);
     }
 

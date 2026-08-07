@@ -1,7 +1,6 @@
 - Finish 3D Bug Net models for Spider and Cave Spider variants
 
 - Make snail slime trails fade away
-- Add recipes to substitute slimeballs for snail slime
 - Code the potion recipes
 
 - Get all the entity models (.java) and textures from Pollo

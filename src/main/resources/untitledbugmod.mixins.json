@@ -8,6 +8,7 @@
   },
   "mixins": [
     "ItemPredicateMixin",
+    "PistonStructureResolverMixin",
     "ShearableEntitiesMixin",
     "ShearsItemMixin",
     "TripWireBlockMixin",

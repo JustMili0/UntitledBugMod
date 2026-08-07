@@ -12,7 +12,7 @@ import net.minecraft.world.item.context.UseOnContext;
 public class SnailSlimeBottle extends BlockItem {
 
     public SnailSlimeBottle(Properties properties) {
-        super(BlockRegistry.SNAIL_TRAIL, properties.stacksTo(16));
+        super(BlockRegistry.SNAIL_SLIME_TRAIL, properties.stacksTo(16));
     }
 
     @Override

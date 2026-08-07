@@ -38,7 +38,7 @@ public class BugsModelProvider extends FabricModelProvider {
         gen.createCubeAndCarpet(BlockRegistry.MAGENTA_SILK, BlockRegistry.MAGENTA_SILK_CARPET, noRotation);
         gen.createCubeAndCarpet(BlockRegistry.PINK_SILK, BlockRegistry.PINK_SILK_CARPET, noRotation);
 
-        gen.createNonTemplateConnectable(BlockRegistry.SNAIL_TRAIL);
+        gen.createNonTemplateConnectable(BlockRegistry.SNAIL_SLIME_TRAIL);
         gen.createNonTemplateModelBlock(BlockRegistry.SNAIL_SLIME_BLOCK);
     }
 

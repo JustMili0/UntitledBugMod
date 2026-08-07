@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:blaze_powder",
+    "untitledbugmod:snail_slime"
+  ],
+  "result": {
+    "id": "minecraft:magma_cream"
+  }
+}
