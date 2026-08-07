@@ -8,10 +8,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -31,6 +28,11 @@ public class SnailSlimeTrail extends Block {
             .noCollision().isSuffocating(BlockBehaviorUtil::never).isViewBlocking(BlockBehaviorUtil::never).isValidSpawn(BlockBehaviorUtil::never));
         this.registerDefaultState(this.stateDefinition.any()
             .setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false));
+    }
+
+    @Override
+    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        return level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.UP);
     }
 
     static {
@@ -79,8 +81,11 @@ public class SnailSlimeTrail extends Block {
     @Override
     protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos,
                                      Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        if (!state.canSurvive(level, pos)) return Blocks.AIR.defaultBlockState();
+
         if (!directionToNeighbour.getAxis().isHorizontal())
             return super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
+
         var property = switch (directionToNeighbour) {
             case NORTH -> NORTH;
             case EAST -> EAST;

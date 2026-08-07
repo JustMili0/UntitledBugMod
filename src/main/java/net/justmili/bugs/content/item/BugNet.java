@@ -91,6 +91,7 @@ public class BugNet extends Item {
         entity.discard();
 
         player.level().playSound(null, targetPos, SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL);
+        player.getCooldowns().addCooldown(stack, 1);
     }
 
     @Override

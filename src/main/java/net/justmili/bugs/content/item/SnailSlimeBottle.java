@@ -1,6 +1,7 @@
 package net.justmili.bugs.content.item;
 
 import net.justmili.bugs.registries.BlockRegistry;
+import net.justmili.libs.v1.utils.common.EntityUtil;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -27,15 +28,7 @@ public class SnailSlimeBottle extends BlockItem {
         var player = context.getPlayer();
         if (player == null || player.getAbilities().instabuild) return result;
 
-        var stack = context.getItemInHand();
-        var bottle = new ItemStack(Items.GLASS_BOTTLE);
-
-        stack.shrink(1);
-        if (stack.isEmpty()) {
-            context.getPlayer().setItemInHand(context.getHand(), bottle);
-        } else if (!player.getInventory().add(bottle)) {
-            player.drop(bottle, false);
-        }
+        EntityUtil.consumeHeldWithResult(player, context.getHand(), Items.GLASS_BOTTLE, false);
 
         return result;
     }

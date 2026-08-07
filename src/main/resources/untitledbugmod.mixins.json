@@ -7,11 +7,14 @@
     "minVersion": "0.5.0"
   },
   "mixins": [
+    "ItemPredicateMixin",
+    "ShearableEntitiesMixin",
     "ShearsItemMixin",
     "TripWireBlockMixin",
     "TripWireHookBlockMixin"
   ],
   "client": [
+    "client.HumanoidModelMixin",
     "client.ItemModelResolverMixin"
   ],
   "injectors": {

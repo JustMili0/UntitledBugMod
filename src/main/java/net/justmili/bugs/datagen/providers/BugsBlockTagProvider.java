@@ -81,6 +81,5 @@ public class BugsBlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
                 BlockRegistry.BROWN_SILK_CARPET, BlockRegistry.RED_SILK_CARPET, BlockRegistry.ORANGE_SILK_CARPET, BlockRegistry.YELLOW_SILK_CARPET,
                 BlockRegistry.LIME_SILK_CARPET, BlockRegistry.GREEN_SILK_CARPET, BlockRegistry.CYAN_SILK_CARPET, BlockRegistry.LIGHT_BLUE_SILK_CARPET, BlockRegistry.BLUE_SILK_CARPET,
                 BlockRegistry.PURPLE_SILK_CARPET, BlockRegistry.MAGENTA_SILK_CARPET, BlockRegistry.PINK_SILK_CARPET);
-
     }
 }
