@@ -26,6 +26,7 @@ public class TabRegistry {
                     for (Block block : BlockRegistry.getSilkBlocks()) {
                         output.accept(block);
                     }
+                    output.accept(ItemRegistry.HONEY_CLUMP);
                     output.accept(ItemRegistry.SNAIL_SLIME);
                     output.accept(ItemRegistry.SNAIL_SLIME_BOTTLE);
                     output.accept(ItemRegistry.SNAIL_SLIME_BLOCK);

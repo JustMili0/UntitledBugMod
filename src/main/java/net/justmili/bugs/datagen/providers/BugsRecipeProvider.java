@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.justmili.bugs.BugMod;
 import net.justmili.bugs.registries.ItemRegistry;
-import net.justmili.bugs.registries.ItemTagRegistry;
+import net.justmili.bugs.registries.tags.ItemTagRegistry;
 import net.justmili.libs.v1.utils.common.datagen.DatagenDataUtil;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -14,6 +14,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -34,6 +35,7 @@ public class BugsRecipeProvider extends FabricRecipeProvider {
                 var redstone = RecipeCategory.REDSTONE;
                 var misc = RecipeCategory.MISC;
 
+                // Tools
                 shaped(decoration, ItemRegistry.COPPER_SHEARS, 1)
                     .define('#', Items.COPPER_INGOT)
                     .pattern(" #")
@@ -107,19 +109,17 @@ public class BugsRecipeProvider extends FabricRecipeProvider {
                 gen.dyeItem(ItemTagRegistry.SILK_CARPETS, Items.MAGENTA_DYE, ItemRegistry.MAGENTA_SILK_CARPET);
                 gen.dyeItem(ItemTagRegistry.SILK_CARPETS, Items.PINK_DYE, ItemRegistry.PINK_SILK_CARPET);
 
+                // Honey
+                gen.shapeless(misc, Items.SUGAR, ItemRegistry.HONEY_CLUMP);
+                gen.shapeless(misc, ItemRegistry.HONEY_CLUMP, Items.HONEY_BLOCK);
+                gen.shaped2x2(RecipeCategory.REDSTONE, ItemRegistry.HONEY_CLUMP, Items.HONEY_BLOCK, 1);
+
                 // Snail Slime
                 gen.shaped2x2(RecipeCategory.REDSTONE, ItemRegistry.SNAIL_SLIME_BOTTLE, ItemRegistry.SNAIL_SLIME_BLOCK, 1);
                 gen.shapeless(misc, ItemRegistry.SNAIL_SLIME, ItemRegistry.SNAIL_SLIME_BOTTLE);
                 gen.shapeless(misc, ItemRegistry.SNAIL_SLIME_BOTTLE, ItemRegistry.SNAIL_SLIME, Items.GLASS_BOTTLE);
 
                 gen.shapeless(misc, Items.MAGMA_CREAM, Items.BLAZE_POWDER, ItemRegistry.SNAIL_SLIME);
-                shaped(redstone, Items.STICKY_PISTON)
-                    .define('O', ItemRegistry.SNAIL_SLIME)
-                    .define('#', Items.PISTON)
-                    .pattern("O")
-                    .pattern("#")
-                    .unlockedBy("has_snail_slime", has(ItemRegistry.SNAIL_SLIME))
-                    .save(output, newRecipeKey("sticky_piston_from_snail_slime"));
 
                 // Snail Slime + Water Bottle = Weakness
                 // Silk + Awkward potion = Weaving

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:honey_block"
+  ],
+  "result": {
+    "id": "untitledbugmod:honey_clump"
+  }
+}

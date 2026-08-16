@@ -20,7 +20,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
 
 public class SnailSlimeBlock extends HoneyBlock {
-
     public SnailSlimeBlock(Properties properties) {
         super(properties.friction(0.98f).sound(SoundType.SLIME_BLOCK).mapColor(MapColor.SAND).noOcclusion());
     }

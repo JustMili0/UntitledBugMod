@@ -1,6 +1,6 @@
-package net.justmili.bugs.datagen.providers;
+package net.justmili.bugs.datagen.providers.tags;
 
-import net.justmili.bugs.registries.EntityTypeTagRegistry;
+import net.justmili.bugs.registries.tags.EntityTypeTagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

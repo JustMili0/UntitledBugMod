@@ -1,4 +1,4 @@
-package net.justmili.bugs.mixin;
+package net.justmili.bugs.mixin.block;
 
 import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;

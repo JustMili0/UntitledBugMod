@@ -2,7 +2,7 @@ package net.justmili.bugs.registries;
 
 import net.justmili.bugs.BugMod;
 import net.justmili.bugs.content.item.BugNet;
-import net.justmili.bugs.content.item.SnailSlimeBottle;
+import net.justmili.libs.v1.items.BottleBlockItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -26,7 +26,7 @@ public class ItemRegistry {
         WHITE_SILK_CARPET, LIGHT_GRAY_SILK_CARPET, GRAY_SILK_CARPET, BLACK_SILK_CARPET,
         BROWN_SILK_CARPET, RED_SILK_CARPET, ORANGE_SILK_CARPET, YELLOW_SILK_CARPET,
         LIME_SILK_CARPET, GREEN_SILK_CARPET, CYAN_SILK_CARPET, LIGHT_BLUE_SILK_CARPET, BLUE_SILK_CARPET,
-        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET, SNAIL_SLIME, SNAIL_SLIME_BOTTLE, SNAIL_SLIME_BLOCK;
+        PURPLE_SILK_CARPET, MAGENTA_SILK_CARPET, PINK_SILK_CARPET, SNAIL_SLIME, SNAIL_SLIME_BOTTLE, SNAIL_SLIME_BLOCK, HONEY_CLUMP;
 
     static {
         COPPER_SHEARS = registerItem("copper_shears", p -> new ShearsItem(p.durability(126).component(DataComponents.TOOL, ShearsItem.createToolProperties())));
@@ -67,8 +67,10 @@ public class ItemRegistry {
         MAGENTA_SILK_CARPET = registerBlockItem("magenta_silk_carpet", BlockRegistry.MAGENTA_SILK_CARPET);
         PINK_SILK_CARPET = registerBlockItem("pink_silk_carpet", BlockRegistry.PINK_SILK_CARPET);
 
-        SNAIL_SLIME = registerItem("snail_slime", Item::new);
-        SNAIL_SLIME_BOTTLE = registerItem("snail_slime_bottle", SnailSlimeBottle::new);
+        HONEY_CLUMP = registerBlockItem("honey_clump", BlockRegistry.HONEY_CLUMP);
+
+        SNAIL_SLIME = registerBlockItemWithCustomItemName("snail_slime", BlockRegistry.SNAIL_SLIME_TRAIL);
+        SNAIL_SLIME_BOTTLE = registerItem("snail_slime_bottle", p -> new BottleBlockItem(BlockRegistry.SNAIL_SLIME_TRAIL, p));
         SNAIL_SLIME_BLOCK = registerBlockItem("snail_slime_block", BlockRegistry.SNAIL_SLIME_BLOCK);
     }
 

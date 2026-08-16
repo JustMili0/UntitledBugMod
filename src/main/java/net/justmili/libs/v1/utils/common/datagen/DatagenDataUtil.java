@@ -1,6 +1,5 @@
 package net.justmili.libs.v1.utils.common.datagen;
 
-import net.justmili.bugs.registries.ItemRegistry;
 import net.justmili.libs.v1.utils.common.ResourceUtil;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
@@ -8,7 +7,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;

@@ -1,8 +1,8 @@
 package net.justmili.bugs.content.item;
 
 import net.justmili.bugs.BugMod;
-import net.justmili.bugs.registries.EntityTypeTagRegistry;
-import net.justmili.bugs.registries.ItemTagRegistry;
+import net.justmili.bugs.registries.tags.EntityTypeTagRegistry;
+import net.justmili.bugs.registries.tags.ItemTagRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;

@@ -1,8 +1,8 @@
-package net.justmili.bugs.datagen.providers;
+package net.justmili.bugs.datagen.providers.tags;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.justmili.bugs.registries.ItemRegistry;
-import net.justmili.bugs.registries.ItemTagRegistry;
+import net.justmili.bugs.registries.tags.ItemTagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

@@ -21,7 +21,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SnailSlimeTrail extends Block {
     public static final BooleanProperty NORTH, EAST, SOUTH, WEST;
-    private static final VoxelShape ARM_NONE, ARM_MID, ARM_NORTH, ARM_SOUTH, ARM_EAST, ARM_WEST;
+    private static final VoxelShape CENTER_UNCONNECTED, CENTER_CONNECTED, ARM_NORTH, ARM_SOUTH, ARM_EAST, ARM_WEST;
 
     public SnailSlimeTrail(Properties properties) {
         super(properties.instabreak().mapColor(MapColor.SAND).pushReaction(PushReaction.DESTROY).sound(SoundType.SLIME_BLOCK)
@@ -30,23 +30,23 @@ public class SnailSlimeTrail extends Block {
             .setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false));
     }
 
-    @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        return level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.UP);
-    }
-
     static {
         NORTH = BlockStateProperties.NORTH;
         EAST = BlockStateProperties.EAST;
         SOUTH = BlockStateProperties.SOUTH;
         WEST = BlockStateProperties.WEST;
 
-        ARM_NONE = Block.box(3, 0, 3, 13, 1, 13);
-        ARM_MID = Block.box(4, 0, 4, 12, 1, 12);
-        ARM_NORTH = Block.box(4, 0, 0, 12, 1, 4);
-        ARM_SOUTH = Block.box(4, 0, 12, 12, 1, 16);
-        ARM_EAST = Block.box(12, 0, 4, 16, 1, 12);
-        ARM_WEST = Block.box(0, 0, 4, 4, 1, 12);
+        CENTER_UNCONNECTED = box(3, 0, 3, 13, 1, 13);
+        CENTER_CONNECTED = box(4, 0, 4, 12, 1, 12);
+        ARM_NORTH = box(4, 0, 0, 12, 1, 4);
+        ARM_SOUTH = box(4, 0, 12, 12, 1, 16);
+        ARM_EAST = box(12, 0, 4, 16, 1, 12);
+        ARM_WEST = box(0, 0, 4, 4, 1, 12);
+    }
+
+    @Override
+    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        return level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.UP);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class SnailSlimeTrail extends Block {
         boolean north = state.getValue(NORTH), south = state.getValue(SOUTH), east = state.getValue(EAST), west = state.getValue(WEST);
         boolean connected = north || south || east || west;
 
-        var shape = connected ? ARM_MID : ARM_NONE;
+        var shape = connected ? CENTER_CONNECTED : CENTER_UNCONNECTED;
         if (north) shape = Shapes.or(shape, ARM_NORTH);
         if (south) shape = Shapes.or(shape, ARM_SOUTH);
         if (east) shape = Shapes.or(shape, ARM_EAST);

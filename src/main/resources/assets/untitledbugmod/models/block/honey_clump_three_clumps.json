@@ -1,0 +1,16 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "untitledbugsmod:block/honey_clump_three_clumps",
+		"texture": "untitledbugsmod:block/honey_clump_three_clumps"
+	},
+	"elements": [
+		{   "from": [ 0, 0, 0.1 ],
+			"to": [ 16, 16, 0.1 ],
+			"faces": {
+				"north": { "uv": [ 16, 0, 0, 16 ], "texture": "#texture" },
+				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture" }
+			}
+		}
+	]
+}

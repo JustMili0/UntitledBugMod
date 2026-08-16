@@ -1,4 +1,4 @@
-package net.justmili.bugs.registries;
+package net.justmili.bugs.registries.tags;
 
 import net.justmili.bugs.BugMod;
 import net.minecraft.core.registries.Registries;

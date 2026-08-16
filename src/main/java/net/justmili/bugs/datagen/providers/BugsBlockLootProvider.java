@@ -18,6 +18,7 @@ public class BugsBlockLootProvider extends FabricBlockLootSubProvider {
         for (var block : BlockRegistry.getSilkBlocks()) {
             dropSelf(block);
         }
+        dropOther(BlockRegistry.HONEY_CLUMP, ItemRegistry.HONEY_CLUMP);
         dropOther(BlockRegistry.SNAIL_SLIME_TRAIL, ItemRegistry.SNAIL_SLIME);
         dropSelf(BlockRegistry.SNAIL_SLIME_BLOCK);
     }

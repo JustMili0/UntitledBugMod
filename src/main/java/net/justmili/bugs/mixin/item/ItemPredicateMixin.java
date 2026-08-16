@@ -1,4 +1,4 @@
-package net.justmili.bugs.mixin;
+package net.justmili.bugs.mixin.item;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.justmili.bugs.registries.ItemRegistry;

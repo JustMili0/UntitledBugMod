@@ -1,23 +1,16 @@
-package net.justmili.bugs.content.item;
+package net.justmili.libs.v1.items;
 
-import net.justmili.bugs.registries.BlockRegistry;
 import net.justmili.libs.v1.utils.common.EntityUtil;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Block;
 
-public class SnailSlimeBottle extends BlockItem {
+public class BottleBlockItem extends BlockItem {
 
-    public SnailSlimeBottle(Properties properties) {
-        super(BlockRegistry.SNAIL_SLIME_TRAIL, properties.stacksTo(16));
-    }
-
-    @Override
-    public ItemStackTemplate getCraftingRemainder(ItemStack stack) {
-        return new ItemStackTemplate(Items.GLASS_BOTTLE);
+    public BottleBlockItem(Block block, Properties properties) {
+        super(block, properties.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16));
     }
 
     @Override

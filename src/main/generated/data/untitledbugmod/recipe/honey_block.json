@@ -2,14 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": "minecraft:piston",
-    "O": "untitledbugmod:snail_slime"
+    "#": "untitledbugmod:honey_clump"
   },
   "pattern": [
-    "O",
-    "#"
+    "##",
+    "##"
   ],
   "result": {
-    "id": "minecraft:sticky_piston"
+    "id": "minecraft:honey_block"
   }
 }

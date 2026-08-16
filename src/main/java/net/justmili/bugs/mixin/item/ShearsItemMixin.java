@@ -1,7 +1,7 @@
-package net.justmili.bugs.mixin;
+package net.justmili.bugs.mixin.item;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.justmili.bugs.registries.BlockTagRegistry;
+import net.justmili.bugs.registries.tags.BlockTagRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.component.Tool;
