@@ -2,154 +2,32 @@
   "multipart": [
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump"
-      },
-      "when": {
-        "AND": [
-          {
-            "north": "true"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump"
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
         "model": "untitledbugmod:block/honey_clump_one_clump",
         "uvlock": true,
-        "y": 90
+        "x": 90
       },
       "when": {
-        "AND": [
-          {
-            "east": "true"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
+        "clumps_down": "1"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
+        "model": "untitledbugmod:block/honey_clump_two_clumps",
         "uvlock": true,
-        "y": 90
+        "x": 90
       },
       "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
+        "clumps_down": "2"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
+        "model": "untitledbugmod:block/honey_clump_three_clumps",
         "uvlock": true,
-        "y": 180
+        "x": 90
       },
       "when": {
-        "AND": [
-          {
-            "south": "true"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "west": "true"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
+        "clumps_down": "3"
       }
     },
     {
@@ -159,75 +37,35 @@
         "x": 270
       },
       "when": {
-        "AND": [
-          {
-            "up": "true"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
+        "clumps_up": "1"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
+        "model": "untitledbugmod:block/honey_clump_two_clumps",
         "uvlock": true,
         "x": 270
       },
       "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
+        "clumps_up": "2"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
+        "model": "untitledbugmod:block/honey_clump_three_clumps",
         "uvlock": true,
-        "x": 90
+        "x": 270
       },
       "when": {
-        "AND": [
-          {
-            "down": "true"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
+        "clumps_up": "3"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_one_clump",
-        "uvlock": true,
-        "x": 90
+        "model": "untitledbugmod:block/honey_clump_one_clump"
       },
       "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "1"
-          }
-        ]
+        "clumps_north": "1"
       }
     },
     {
@@ -235,229 +73,7 @@
         "model": "untitledbugmod:block/honey_clump_two_clumps"
       },
       "when": {
-        "AND": [
-          {
-            "north": "true"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps"
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "AND": [
-          {
-            "east": "true"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "AND": [
-          {
-            "south": "true"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "west": "true"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "x": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "up": "true"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "x": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "x": 90
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "true"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_two_clumps",
-        "uvlock": true,
-        "x": 90
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "2"
-          }
-        ]
+        "clumps_north": "2"
       }
     },
     {
@@ -465,73 +81,27 @@
         "model": "untitledbugmod:block/honey_clump_three_clumps"
       },
       "when": {
-        "AND": [
-          {
-            "north": "true"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
+        "clumps_north": "3"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps"
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps",
+        "model": "untitledbugmod:block/honey_clump_one_clump",
         "uvlock": true,
-        "y": 90
+        "y": 180
       },
       "when": {
-        "AND": [
-          {
-            "east": "true"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
+        "clumps_south": "1"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps",
+        "model": "untitledbugmod:block/honey_clump_two_clumps",
         "uvlock": true,
-        "y": 90
+        "y": 180
       },
       "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
+        "clumps_south": "2"
       }
     },
     {
@@ -541,36 +111,27 @@
         "y": 180
       },
       "when": {
-        "AND": [
-          {
-            "south": "true"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
+        "clumps_south": "3"
       }
     },
     {
       "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps",
+        "model": "untitledbugmod:block/honey_clump_one_clump",
         "uvlock": true,
-        "y": 180
+        "y": 270
       },
       "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
+        "clumps_west": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "untitledbugmod:block/honey_clump_two_clumps",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "clumps_west": "2"
       }
     },
     {
@@ -580,114 +141,37 @@
         "y": 270
       },
       "when": {
-        "AND": [
-          {
-            "west": "true"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
+        "clumps_west": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "untitledbugmod:block/honey_clump_one_clump",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "clumps_east": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "untitledbugmod:block/honey_clump_two_clumps",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "clumps_east": "2"
       }
     },
     {
       "apply": {
         "model": "untitledbugmod:block/honey_clump_three_clumps",
         "uvlock": true,
-        "y": 270
+        "y": 90
       },
       "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps",
-        "uvlock": true,
-        "x": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "up": "true"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps",
-        "uvlock": true,
-        "x": 270
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps",
-        "uvlock": true,
-        "x": 90
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "true"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
-      }
-    },
-    {
-      "apply": {
-        "model": "untitledbugmod:block/honey_clump_three_clumps",
-        "uvlock": true,
-        "x": 90
-      },
-      "when": {
-        "AND": [
-          {
-            "down": "false",
-            "east": "false",
-            "north": "false",
-            "south": "false",
-            "up": "false",
-            "west": "false"
-          },
-          {
-            "clumps": "3"
-          }
-        ]
+        "clumps_east": "3"
       }
     }
   ]

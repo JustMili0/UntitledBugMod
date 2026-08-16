@@ -11,7 +11,8 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
-import net.minecraft.world.level.block.MultifaceBlock;
+import net.minecraft.client.renderer.block.dispatch.VariantMutator;
+import net.minecraft.core.Direction;
 
 public class BugsModelProvider extends FabricModelProvider {
     public BugsModelProvider(FabricPackOutput output) {
@@ -62,24 +63,33 @@ public class BugsModelProvider extends FabricModelProvider {
 
     private void createHoneyClumpBlockStates(BlockModelGenerators blockGen) {
         var block = BlockRegistry.HONEY_CLUMP;
-        var directionProperties = BlockModelGenerators.selectMultifaceProperties(block.defaultBlockState(), MultifaceBlock::getFaceProperty);
-        var condition = BlockModelGenerators.condition();
         var generator = MultiPartGenerator.multiPart(block);
-        directionProperties.forEach((property, mutator) -> condition.term(property, false));
-
         String[] clumpWords = {"one_clump", "two_clumps", "three_clumps"};
 
-        for (int clumps = HoneyClumpBlock.MIN_CLUMPS; clumps <= HoneyClumpBlock.MAX_CLUMPS; clumps++) {
-            String suffix = "_" + clumpWords[clumps - 1];
-            var model = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block, suffix));
-            var clumpCondition = BlockModelGenerators.condition().term(HoneyClumpBlock.CLUMPS, clumps);
+        for (Direction direction : Direction.values()) {
+            var property = HoneyClumpBlock.faceProperty(direction);
+            var mutator = rotationFor(direction);
 
-            directionProperties.forEach((property, mutator) -> {
-                generator.with(BlockModelGenerators.and(BlockModelGenerators.condition(property, true), clumpCondition), model.with(mutator));
-                generator.with(BlockModelGenerators.and(condition, clumpCondition), model.with(mutator));
-            });
+            for (int clumps = HoneyClumpBlock.MIN_CLUMPS; clumps <= HoneyClumpBlock.MAX_CLUMPS; clumps++) {
+                String suffix = "_" + clumpWords[clumps - 1];
+                var model = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block, suffix));
+                var condition = BlockModelGenerators.condition().term(property, clumps);
+
+                generator.with(condition, model.with(mutator));
+            }
         }
 
         blockGen.blockStateOutput.accept(generator);
+    }
+
+    private static VariantMutator rotationFor(Direction direction) {
+        return switch (direction) {
+            case NORTH -> BlockModelGenerators.NOP;
+            case EAST -> DatagenAssetUtil.Y_ROT_90.then(BlockModelGenerators.UV_LOCK);
+            case SOUTH -> DatagenAssetUtil.Y_ROT_180.then(BlockModelGenerators.UV_LOCK);
+            case WEST -> DatagenAssetUtil.Y_ROT_270.then(BlockModelGenerators.UV_LOCK);
+            case UP -> DatagenAssetUtil.X_ROT_270.then(BlockModelGenerators.UV_LOCK);
+            case DOWN -> DatagenAssetUtil.X_ROT_90.then(BlockModelGenerators.UV_LOCK);
+        };
     }
 }

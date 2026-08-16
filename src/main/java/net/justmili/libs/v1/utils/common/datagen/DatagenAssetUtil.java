@@ -15,9 +15,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 
 public class DatagenAssetUtil {
-    public static final VariantMutator Y_ROT_90 = BlockModelGenerators.Y_ROT_90;
-    public static final VariantMutator Y_ROT_180 = BlockModelGenerators.Y_ROT_180;
-    public static final VariantMutator Y_ROT_270 = BlockModelGenerators.Y_ROT_270;
+    public static final VariantMutator Y_ROT_90 = BlockModelGenerators.Y_ROT_90, Y_ROT_180 = BlockModelGenerators.Y_ROT_180 ,Y_ROT_270 = BlockModelGenerators.Y_ROT_270;
+    public static final VariantMutator X_ROT_90 = BlockModelGenerators.X_ROT_90, X_ROT_180 = BlockModelGenerators.X_ROT_180 ,X_ROT_270 = BlockModelGenerators.X_ROT_270;
     private BlockModelGenerators blockGen;
     private ItemModelGenerators itemGen;
     private final String modId;
