@@ -1,6 +1,6 @@
 package net.justmili.bugs.datagen.providers.tags;
 
-import net.justmili.bugs.registries.tags.EntityTypeTagRegistry;
+import net.justmili.bugs.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -18,15 +18,15 @@ public class BugsEntityTypeTagProvider extends IntrinsicHolderTagsProvider<Entit
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
-        //this.tag(EntityTypeTagRegistry.BUGS).add();
-        this.tag(EntityTypeTagRegistry.INSECTS)
+        //this.tag(TagRegistry.BUGS).add();
+        this.tag(TagRegistry.INSECTS)
             .add(EntityType.BEE, EntityType.SILVERFISH, EntityType.ENDERMITE, EntityType.SPIDER, EntityType.CAVE_SPIDER);
-        this.tag(EntityTypeTagRegistry.HOSTILE_INSECTS)
+        this.tag(TagRegistry.HOSTILE_INSECTS)
             .add(EntityType.SILVERFISH, EntityType.ENDERMITE, EntityType.SPIDER, EntityType.CAVE_SPIDER);
-        //this.tag(EntityTypeTagRegistry.BEETLES).add();
-        //this.tag(EntityTypeTagRegistry.MOLLUSKS).add();
+        //this.tag(TagRegistry.BEETLES).add();
+        //this.tag(TagRegistry.MOLLUSKS).add();
 
-        this.tag(EntityTypeTagRegistry.BUG_NET_CATCHABLE) // TODO: add .addTag(EntityTypeTagRegistry.BUGS) after coding the bug type entities
-            .addTag(EntityTypeTagRegistry.INSECTS).addTag(EntityTypeTagRegistry.HOSTILE_INSECTS);
+        this.tag(TagRegistry.BUG_NET_CATCHABLE) // TODO: add .addTag(EntityTypeTagRegistry.BUGS) after coding the bug type entities
+            .addTag(TagRegistry.INSECTS).addTag(TagRegistry.HOSTILE_INSECTS);
     }
 }

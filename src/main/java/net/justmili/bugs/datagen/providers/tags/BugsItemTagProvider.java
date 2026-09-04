@@ -2,7 +2,7 @@ package net.justmili.bugs.datagen.providers.tags;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.justmili.bugs.registries.ItemRegistry;
-import net.justmili.bugs.registries.tags.ItemTagRegistry;
+import net.justmili.bugs.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -24,19 +24,19 @@ public class BugsItemTagProvider extends IntrinsicHolderTagsProvider<Item> {
         this.tag(ConventionalItemTags.SHEAR_TOOLS)
             .add(ItemRegistry.COPPER_SHEARS);
 
-        this.tag(ItemTagRegistry.BUG_NET_REPAIRABLES)
+        this.tag(TagRegistry.BUG_NET_REPAIRABLES)
             .add(Items.BAMBOO, ItemRegistry.SILK, Items.SCAFFOLDING); // Funny, scaffolding
 
         this.tag(ConventionalItemTags.STRINGS)
             .add(ItemRegistry.SILK);
 
-        this.tag(ItemTagRegistry.SILK_BLOCKS)
+        this.tag(TagRegistry.SILK_BLOCK_ITEMS)
             .add(ItemRegistry.WHITE_SILK, ItemRegistry.LIGHT_GRAY_SILK, ItemRegistry.GRAY_SILK, ItemRegistry.BLACK_SILK,
                 ItemRegistry.BROWN_SILK, ItemRegistry.RED_SILK, ItemRegistry.ORANGE_SILK, ItemRegistry.YELLOW_SILK,
                 ItemRegistry.LIME_SILK, ItemRegistry.GREEN_SILK, ItemRegistry.CYAN_SILK, ItemRegistry.LIGHT_BLUE_SILK, ItemRegistry.BLUE_SILK,
                 ItemRegistry.PURPLE_SILK, ItemRegistry.MAGENTA_SILK, ItemRegistry.PINK_SILK);
 
-        this.tag(ItemTagRegistry.SILK_CARPETS)
+        this.tag(TagRegistry.SILK_CARPET_ITEMS)
             .add(ItemRegistry.WHITE_SILK_CARPET, ItemRegistry.LIGHT_GRAY_SILK_CARPET, ItemRegistry.GRAY_SILK_CARPET, ItemRegistry.BLACK_SILK_CARPET,
                 ItemRegistry.BROWN_SILK_CARPET, ItemRegistry.RED_SILK_CARPET, ItemRegistry.ORANGE_SILK_CARPET, ItemRegistry.YELLOW_SILK_CARPET,
                 ItemRegistry.LIME_SILK_CARPET, ItemRegistry.GREEN_SILK_CARPET, ItemRegistry.CYAN_SILK_CARPET, ItemRegistry.LIGHT_BLUE_SILK_CARPET, ItemRegistry.BLUE_SILK_CARPET,

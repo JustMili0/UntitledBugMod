@@ -1,7 +1,7 @@
 package net.justmili.bugs.mixin.item;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.justmili.bugs.registries.tags.BlockTagRegistry;
+import net.justmili.bugs.registries.TagRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.component.Tool;
@@ -19,8 +19,8 @@ public abstract class ShearsItemMixin {
         var registrationLookup = BuiltInRegistries.acquireBootstrapRegistrationLookup(BuiltInRegistries.BLOCK);
         var rules = new ArrayList<>(original.rules());
 
-        rules.add(Rule.overrideSpeed(registrationLookup.getOrThrow(BlockTagRegistry.SILK_BLOCKS), 10.0F));
-        rules.add(Rule.overrideSpeed(registrationLookup.getOrThrow(BlockTagRegistry.SILK_CARPETS), 10.0F));
+        rules.add(Rule.overrideSpeed(registrationLookup.getOrThrow(TagRegistry.SILK_BLOCKS), 10.0F));
+        rules.add(Rule.overrideSpeed(registrationLookup.getOrThrow(TagRegistry.SILK_CARPETS), 10.0F));
 
         return new Tool(rules, original.defaultMiningSpeed(), original.damagePerBlock(), original.canDestroyBlocksInCreative());
     }

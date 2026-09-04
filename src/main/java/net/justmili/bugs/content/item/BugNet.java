@@ -1,8 +1,7 @@
 package net.justmili.bugs.content.item;
 
 import net.justmili.bugs.BugMod;
-import net.justmili.bugs.registries.tags.EntityTypeTagRegistry;
-import net.justmili.bugs.registries.tags.ItemTagRegistry;
+import net.justmili.bugs.registries.TagRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -43,7 +42,7 @@ import static net.justmili.bugs.registries.DataComponentRegistry.BUG_NET_ENTITY_
 
 public class BugNet extends Item {
     public BugNet(Properties properties) {
-        super(properties.durability(96).enchantable(14).repairable(ItemTagRegistry.BUG_NET_REPAIRABLES));
+        super(properties.durability(96).enchantable(14).repairable(TagRegistry.BUG_NET_REPAIRABLES));
     }
 
     @Override
@@ -70,8 +69,8 @@ public class BugNet extends Item {
         stack = player.getItemInHand(hand); // Mojang, why
         if (stack.has(BUG_NET_ENTITY_DATA)) return InteractionResult.FAIL;
 
-        if (!target.is(EntityTypeTagRegistry.BUG_NET_CATCHABLE)) return InteractionResult.PASS;
-        if (target.is(EntityTypeTagRegistry.HOSTILE_INSECTS) && !target.hasEffect(MobEffects.WEAKNESS)) return InteractionResult.FAIL;
+        if (!target.is(TagRegistry.BUG_NET_CATCHABLE)) return InteractionResult.PASS;
+        if (target.is(TagRegistry.HOSTILE_INSECTS) && !target.hasEffect(MobEffects.WEAKNESS)) return InteractionResult.FAIL;
 
         capture(stack, target, player);
         player.swing(hand);
